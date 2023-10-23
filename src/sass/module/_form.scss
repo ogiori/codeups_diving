@@ -1,0 +1,472 @@
+@use "global" as *;
+
+/*===== 共通スタイル =====*/
+.form__item {
+  border-bottom: 1px dashed $green;
+  padding-bottom: rem(24);
+  @include mq(md) {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: rem(41);
+  }
+}
+
+.form__item:not(:first-child) {
+  margin-top: rem(23);
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}
+
+.form__item dt {
+  display: inline-flex;
+  gap: 0 rem(8);
+  font-size: rem(16);
+  line-height: calc(23 / 16);
+  font-weight: $bold;
+  position: relative;
+  z-index: 1;
+  @include mq(md) {
+    width: rem(220);
+    flex-shrink: 0;
+  }
+}
+
+.form__item dt::after {
+  content: "必須";
+  display: block;
+  background-color: #c94800;
+  padding: rem(2) rem(19);
+  font-size: rem(12);
+  line-height: calc(17 / 12);
+  font-weight: $regular;
+  color: $white;
+}
+
+/* セレクトボックスは非表示 */
+.form__item.form__item--select dt::after {
+  display: none;
+}
+
+.form__item dd {
+  @include mq(md) {
+    width: 100%;
+  }
+}
+
+/*===== 各種フォームリセット & スタイル =====*/
+/*===== テキスト、メール、TE、パスワード =====*/
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: rem(16) 0 0;
+  padding: rem(7) rem(16);
+  width: 100%;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid $green;
+  border-radius: 0;
+  font-size: rem(16);
+  line-height: calc(23 / 16);
+  font-weight: $regular;
+  @include mq(md) {
+    margin: 0;
+  }
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+  border: 1px solid $green;
+  box-shadow: none;
+  outline: none;
+  color: $green;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="password"]::placeholder {
+  font-size: rem(16);
+  line-height: calc(23 / 16);
+  font-weight: $regular;
+  color: #ddf0f1;
+}
+
+/*===== テキストエリア =====*/
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: rem(15) 0 0;
+  padding: rem(10);
+  width: 100%;
+  height: rem(200);
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid $green;
+  border-radius: 0;
+  font-size: rem(16);
+  line-height: calc(23 / 16);
+  font-weight: $regular;
+  @include mq(md) {
+    margin: 0;
+  }
+}
+
+.form__item.form__item--textarea {
+  padding-bottom: rem(18);
+  @include mq(md) {
+    padding-bottom: rem(34);
+    margin-top: rem(37);
+  }
+}
+
+textarea:focus {
+  box-shadow: none;
+  outline: none;
+  border: 1px solid $green;
+}
+
+/*===== チェックボックス1 =====*/
+input[type="checkbox"] {
+  appearance: none;
+}
+
+.checkbox1 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.checkbox1 input[type="checkbox"] + span {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0 rem(8);
+  position: relative;
+  font-size: rem(16);
+  line-height: calc(23 / 16);
+  font-weight: $regular;
+}
+
+.checkbox1 input[type="checkbox"] + span::before {
+  content: "";
+  display: block;
+  width: rem(14);
+  height: rem(14);
+  border: 1px solid $green;
+}
+
+.checkbox1 input[type="checkbox"] + span::after {
+  content: "";
+  display: block;
+  width: rem(10);
+  height: rem(6);
+  border-bottom: 3px solid #c94800;
+  border-left: 3px solid #c94800;
+  position: absolute;
+  left: rem(2);
+  top: 44%;
+  transform: translateY(-50%) rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+input[type="checkbox"]:checked + span::after {
+  opacity: 1;
+}
+
+.form__item.form__item-input[type="checkbox"]:first-of-type {
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: 0;
+  }
+}
+
+.form__item.form__item-input[type="checkbox"]:not(:first-of-type) {
+  margin-top: rem(3);
+}
+
+.form__item.form__item--checkbox1 dd {
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: 0;
+  }
+}
+
+//wpで付与されるマージンをリセット
+.wpcf7-list-item {
+  margin: 0;
+}
+
+.wpcf7-list-item.last {
+  margin-top: rem(5);
+}
+
+/*===== チェックボックス2 =====*/
+input[type="checkbox"] + span {
+  display: inline-flex;
+  gap: 0 rem(8);
+  cursor: pointer;
+  position: relative;
+  font-size: rem(14);
+  line-height: calc(22 / 14);
+  font-weight: $regular;
+  @include mq(md) {
+    gap: 0 rem(15);
+  }
+}
+
+input[type="checkbox"] + span::before {
+  content: "";
+  display: block;
+  width: rem(22);
+  height: rem(22);
+  border: 1px solid $green;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"] + span::after {
+  content: "";
+  display: block;
+  width: rem(18);
+  height: rem(9);
+  border-bottom: 3px solid #c94800;
+  border-left: 3px solid #c94800;
+  position: absolute;
+  left: rem(2);
+  top: 21%;
+  transform: translateY(-50%) rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+  @include mq(md) {
+    top: 40%;
+  }
+}
+
+input[type="checkbox"]:checked + span::after {
+  opacity: 1;
+}
+
+.form__item.form__item--checkbox2 {
+  max-width: rem(282);
+  margin-inline: auto;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: rem(40);
+  @include mq(md) {
+    margin-top: rem(80);
+    max-width: rem(375);
+  }
+}
+
+/*===== セレクトボックス =====*/
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  margin: rem(13) 0 0;
+  padding: rem(11) rem(8);
+  border: 1px solid $green;
+  border-radius: 0;
+  font-size: rem(12);
+  line-height: calc(17 / 12);
+  font-weight: $regular;
+  color: $black;
+  @include mq(md) {
+    margin-top: rem(0);
+    padding: rem(6) rem(8);
+  }
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select:focus {
+  border: 1px solid $green;
+  box-shadow: none;
+  outline: none;
+}
+
+/* 矢印 */
+.form__item.form__item--select dd {
+  position: relative;
+  @include mq(md) {
+    margin-top: rem(-7);
+  }
+}
+
+.form__item.form__item--select dd::after {
+  content: "";
+  display: block;
+  width: rem(11);
+  height: rem(11);
+  background: url(../images/common/trilateral.svg) no-repeat center / contain;
+  position: absolute;
+  top: 52%;
+  right: rem(10);
+  transform: rotate(90deg);
+  @include mq(md) {
+    top: 40%;
+  }
+}
+
+/*===== 送信ボタン =====*/
+.form__button {
+  margin-top: rem(24);
+  background-color: $green;
+  max-width: rem(202);
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  @include mq(md) {
+    margin-top: rem(35);
+  }
+}
+
+//ボーダー
+.form__button::before {
+  content: "";
+  display: block;
+  border: 1px solid $green;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: rem(5);
+  left: rem(5);
+  z-index: -1;
+  pointer-events: none;
+}
+
+// スライド背景
+.form__button::after {
+  background: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.form__button:hover::after {
+  @include mq(md) {
+    transform: scale(1, 1);
+  }
+}
+
+//矢印
+.form__button span {
+  position: relative;
+}
+
+.form__button span::after {
+  content: "";
+  display: block;
+  margin-top: rem(-4);
+  width: rem(61);
+  height: rem(8);
+  background: url(../images/common/arrow.svg) no-repeat center / contain;
+  position: absolute;
+  top: 50%;
+  right: 16%;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+.form__button span:hover::after {
+  @include mq(md) {
+    background: url(../images/common/arrow_green.svg) no-repeat center / contain;
+  }
+}
+
+//送信ボタン
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  margin: 0;
+  padding: rem(16) rem(56);
+  width: 100%;
+  background-color: transparent;
+  background-image: none;
+  border-radius: 0;
+  color: $white;
+  border: 1px solid $green;
+  font-size: rem(14);
+  line-height: calc(22 / 14);
+  font-weight: $regular;
+}
+
+input[type="submit"]:hover {
+  @include mq(md) {
+    outline: none;
+    color: $green;
+  }
+}
+
+.wpcf7-spinner {
+  display: none;
+}
+
+/*===== エラーメッセージ =====*/
+//background-color
+.wpcf7-form-control-wrap {
+  position: relative;
+}
+
+.wpcf7-not-valid-tip {
+  background-color: rgba(#c94800, 0.2);
+  position: absolute;
+  top: rem(-7);
+  left: 0;
+  width: 100%;
+  height: rem(39);
+  border: 1px solid #c94800;
+  pointer-events: none;
+}
+
+.form__item.form__item--checkbox1 dd .wpcf7-not-valid-tip {
+  height: rem(90);
+}
+
+.form__item.form__item--textarea .wpcf7-not-valid-tip {
+  height: rem(200);
+  top: rem(-181);
+}
+
+//エラーメッセージ
+.wpcf7-response-output {
+  max-width: rem(225);
+  font-size: rem(14);
+  line-height: calc(20 / 14);
+  font-weight: $regular;
+  color: #c94800;
+  @include mq(md) {
+    max-width: rem(350);
+  }
+}
+
+.wpcf7 form.invalid .wpcf7-response-output {
+  border: none;
+  padding: 0;
+  margin-inline: auto;
+  margin-bottom: rem(39);
+  padding-left: 1em;
+  text-indent: -1em;
+}

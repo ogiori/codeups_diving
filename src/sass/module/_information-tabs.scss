@@ -1,0 +1,18 @@
+@use "global" as *;
+
+.information-tabs {
+  display: flex;
+  gap: rem(19);
+  @include mq(md) {
+    gap: 0;
+    text-align: center;
+    justify-content: space-between;
+  }
+}
+
+.information-tabs__item {
+  width: 100%;
+  @include mq(md) {
+    width: calc(300 / 1080 * 100%);
+  }
+}

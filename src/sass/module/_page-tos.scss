@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.page-tos__inner.inner {
+  max-width: rem(630);
+  @include mq(md) {
+    max-width: rem(850);
+  }
+}
+
+.page-tos__title {
+  font-size: rem(24);
+  line-height: calc(35 / 24);
+  font-weight: $medium;
+  position: relative;
+  z-index: 1;
+  @include mq(md) {
+    font-size: rem(32);
+    line-height: calc(46 / 32);
+  }
+}
+
+.page-tos__wrap {
+  margin-top: rem(40);
+  font-size: rem(16);
+  line-height: calc(32 / 16);
+  font-weight: $regular;
+}

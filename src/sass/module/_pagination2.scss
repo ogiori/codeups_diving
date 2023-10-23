@@ -1,0 +1,62 @@
+@use "global" as *;
+
+.pagination2 {
+  display: flex;
+  justify-content: center;
+  gap: 0 rem(82);
+}
+
+.pagination2__prev,
+.pagination2__next {
+  background-color: $white;
+  width: rem(38);
+  height: rem(38);
+  transition: all 0.3s;
+}
+
+.pagination2__prev:hover,
+.pagination2__next:hover {
+  @include mq(md) {
+    background-color: $green;
+  }
+}
+
+
+.pagination2__prev a,
+.pagination2__next a {
+  display: grid;
+  place-content: center;
+  width: inherit;
+  height: inherit;
+  border: 1px solid $green;
+  transition: all 0.3s;
+}
+
+.pagination2__prev a::before,
+.pagination2__next a::before {
+  content: "";
+  display: block;
+  width: rem(8);
+  height: rem(16);
+  transition: all 0.3s;
+}
+
+.pagination2__prev a::before {
+  background: url(../images/common/page-arrow_l.svg) no-repeat center / contain;
+}
+
+.pagination2__next a::before {
+  background: url(../images/common/page-arrow_r.svg) no-repeat center / contain;
+}
+
+.pagination2__prev a:hover::before {
+  @include mq(md) {
+    background: url(../images/common/page-arrow_l-white.svg) no-repeat center / contain;
+  }
+}
+
+.pagination2__next a:hover::before {
+  @include mq(md) {
+    background: url(../images/common/page-arrow_r-white.svg) no-repeat center / contain;
+  }
+}

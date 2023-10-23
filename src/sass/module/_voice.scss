@@ -1,0 +1,57 @@
+@use "global"as *;
+
+.voice__inner {
+  max-width: rem(630);
+  @include mq(md) {
+    position: relative;
+  }
+}
+
+.voice__inner::before {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/fishs_r.png)no-repeat top / contain;
+    display: block;
+    width: rem(301);
+    height: rem(138);
+    position: absolute;
+    top: rem(-121);
+    left: calc(50% - min(47vw, #{rem(620)}));
+  }
+}
+
+.voice__inner::after {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/tatunootosigo.png)no-repeat top / contain;
+    display: block;
+    width: rem(71);
+    height: rem(162);
+    position: absolute;
+    bottom: rem(-71);
+    right: rem(179);
+    right: calc(50% - min(46.5vw, #{rem(540)}));
+  }
+}
+
+.voice__title {
+  max-width: rem(300);
+  word-break: break-word;
+  margin: 0 auto;
+
+}
+
+.voice__cards {
+  margin-top: rem(42);
+  @include mq(md) {
+    margin-top: rem(28);
+  }
+}
+
+.voice__btn {
+  text-align: center;
+  margin: rem(40) auto 0;
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

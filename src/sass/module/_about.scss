@@ -1,0 +1,137 @@
+@use "global" as *;
+
+.about__inner {
+  max-width: rem(630);
+  @include mq(md) {
+    position: relative;
+  }
+}
+
+.about__inner::after {
+  @include mq(md) {
+    content: "";
+    background: url(../images/common/isogincyaku.png) no-repeat top / contain;
+    display: block;
+    width: rem(194);
+    height: rem(181);
+    position: absolute;
+    bottom: rem(-90);
+    right: calc(50% - min(48.4vw, #{rem(638)}));
+  }
+}
+
+.about__title {
+  max-width: rem(300);
+  word-break: break-word;
+  margin: 0 auto;
+}
+
+.about__wrap {
+  margin-top: rem(27);
+  @include mq(md) {
+    margin-top: rem(39);
+    position: relative;
+  }
+}
+
+.about__images {
+  display: flex;
+}
+
+.about__img1 {
+  width: calc(128 / 345 * 100%);
+  @include mq(md) {
+    width: calc(404 / 1080 * 100%);
+  }
+}
+
+.about__img1 img {
+  aspect-ratio: 128/194;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  @include mq(md) {
+    aspect-ratio: 399/606;
+  }
+}
+
+.about__img2 {
+  width: calc(281 / 345 * 100%);
+  margin-top: rem(26);
+  margin-left: rem(-64);
+  @include mq(md) {
+    width: calc(890 / 1080 * 100%);
+    margin-top: rem(80);
+    margin-left: rem(-201);
+  }
+}
+
+.about__img2 img {
+  aspect-ratio: 281/186;
+  width: 100%;
+  object-fit: cover;
+  @include mq(md) {
+    aspect-ratio: 880/581;
+  }
+}
+
+.about__container {
+  margin-top: rem(40);
+  @include mq(md) {
+    display: flex;
+    gap: 0 rem(35);
+    margin-top: 0;
+    width: rem(840);
+    position: absolute;
+    top: 30.5%;
+    left: calc(50% - #{rem(341)});
+  }
+}
+
+.about__text1 {
+  font-size: rem(40);
+  line-height: 1;
+  font-weight: $regular;
+  font-family: $gotu;
+  color: $green;
+  word-break: break-word;
+  position: relative;
+  z-index: 1;
+  @include mq(md) {
+    font-size: rem(80);
+    line-height: calc(100 / 80);
+    color: $white;
+    flex-shrink: 0;
+    width: calc(405 / 840 * 100%);
+  }
+}
+
+.about__contents {
+  @include mq(md) {
+    width: calc(400 / 840 * 100%);
+  }
+}
+
+.about__text2 {
+  margin-top: rem(16);
+  font-size: rem(16);
+  line-height: calc(24 / 16);
+  font-weight: $regular;
+  @include mq(md) {
+    margin-top: rem(-1);
+    color: $white;
+    display: -webkit-box;
+    -webkit-line-clamp: 14;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.about__btn {
+  text-align: center;
+  margin: rem(39) auto 0;
+  @include mq(md) {
+    margin-top: rem(40);
+  }
+}

@@ -1,0 +1,92 @@
+@use "global" as *;
+
+.pagination1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 rem(12);
+}
+
+// 前
+.prev.page-numbers {
+  display: block;
+  margin-right: rem(40);
+  transition: all 0.3s;
+}
+
+// 次
+.next.page-numbers {
+  margin-left: rem(40);
+  transition: all 0.3s;
+}
+
+.prev.page-numbers,
+.next.page-numbers {
+  display: grid;
+  place-content: center;
+  width: rem(38);
+  height: rem(38);
+  border: 1px solid $green;
+  transition: all 0.3s;
+}
+
+.prev.page-numbers::before,
+.next.page-numbers::before {
+  content: "";
+  display: block;
+  width: rem(8);
+  height: rem(16);
+  transition: all 0.3s;
+}
+
+.prev.page-numbers::before {
+  background: url(../images/common/page-arrow_l.svg) no-repeat center / contain;
+}
+
+.next.page-numbers::before {
+  background: url(../images/common/page-arrow_r.svg) no-repeat center / contain;
+}
+
+.prev.page-numbers:hover,
+.next.page-numbers:hover {
+  @include mq(md) {
+    background-color: $green;
+  }
+}
+
+.prev.page-numbers:hover::before {
+  @include mq(md) {
+    background: url(../images/common/page-arrow_l-white.svg) no-repeat center / contain;
+  }
+}
+
+.next.page-numbers:hover::before {
+  @include mq(md) {
+    background: url(../images/common/page-arrow_r-white.svg) no-repeat center / contain;
+  }
+}
+
+.page-numbers {
+  display: grid;
+  place-content: center;
+  width: rem(38);
+  height: rem(38);
+  border: 1px solid $green;
+  font-size: rem(16);
+  line-height: calc(19 / 16);
+  font-weight: $bold;
+  color: $green;
+  transition: all 0.3s;
+}
+
+.page-numbers.current {
+  background-color: $green;
+  color: $white;
+}
+
+.page-numbers:hover {
+  @include mq(md) {
+    background-color: $green;
+    color: $white;
+  }
+}

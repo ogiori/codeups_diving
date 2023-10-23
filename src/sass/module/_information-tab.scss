@@ -1,0 +1,86 @@
+@use "global" as *;
+
+.information-tab {
+  display: block;
+  padding: rem(10) rem(15);
+  background-color: $blue;
+  text-align: center;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: rem(14);
+  line-height: calc(20 / 14);
+  font-weight: $regular;
+  color: $green;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+  @include mq(md) {
+    display: inline-flex;
+    width: 100%;
+    padding: rem(13) rem(5);
+    align-items: center;
+    justify-content: center;
+    gap: 0 rem(8);
+    font-size: rem(24);
+    line-height: calc(35 / 24);
+    cursor: pointer;
+  }
+}
+
+.information-tab:hover {
+  @include mq(md) {
+    background-color: $green;
+    color: $white;
+  }
+}
+
+.information-tab.current {
+  background-color: $green;
+  color: $white;
+}
+
+.information-tab::before {
+  @include mq(md) {
+    content: "";
+    display: block;
+    width: rem(64);
+    height: rem(64);
+    transition: all 0.3s;
+  }
+}
+
+// ライセンス講座
+.information-tab.information-tab--license::before {
+  @include mq(md) {
+    background: url(../images/common/kujira.svg) no-repeat center / contain;
+  }
+}
+.information-tab.information-tab--license:hover::before,
+.information-tab.information-tab--license.current::before {
+  @include mq(md) {
+    background: url(../images/common/kujira-w.svg) no-repeat center / contain;
+  }
+}
+// ファンダイビング
+.information-tab.information-tab--fun::before {
+  @include mq(md) {
+    background: url(../images/common/same.svg) no-repeat center / contain;
+  }
+}
+.information-tab.information-tab--fun:hover::before,
+.information-tab.information-tab--fun.current::before {
+  @include mq(md) {
+    background: url(../images/common/same-w.svg) no-repeat center / contain;
+  }
+}
+// 体験ダイビング
+.information-tab.information-tab--experience::before {
+  @include mq(md) {
+    background: url(../images/common/sakana.svg) no-repeat center / contain;
+  }
+}
+.information-tab.information-tab--experience:hover::before,
+.information-tab.information-tab--experience.current::before {
+  @include mq(md) {
+    background: url(../images/common/sakana-w.svg) no-repeat center / contain;
+  }
+}

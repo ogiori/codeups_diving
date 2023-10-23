@@ -1,0 +1,52 @@
+@use "global" as *;
+
+.sentence {
+  h3 {
+    font-size: rem(16);
+    line-height: calc(32 / 16);
+    font-weight: $regular;
+  }
+
+  p {
+    margin-top: rem(32);
+  }
+
+  // 番号付きリスト
+  ol {
+    counter-reset: number;
+
+    li {
+      padding-left: rem(23);
+      text-indent: -1em;
+      font-size: rem(16);
+      line-height: calc(32 / 16);
+      font-weight: $regular;
+    }
+
+    li::before {
+      counter-increment: number;
+      content: counter(number) ".";
+    }
+  }
+
+  // 箇条書きリスト
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: inline-flex;
+      gap: 0 rem(6);
+      font-size: rem(16);
+      line-height: calc(32 / 16);
+      font-weight: $regular;
+    }
+
+    li::before {
+      content: "・";
+      width: rem(10);
+      height: rem(10);
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use "global" as *;
+
+.breadcrumbs-space {
+  margin-top: rem(8);
+}
+
+/*===== 404ページ =====*/
+.breadcrumbs-space.breadcrumbs-space--404 {
+  margin-top: 0;
+  background: $green;
+  padding-top: rem(88);
+  @include mq(md) {
+    padding-top: rem(99);
+  }
+}

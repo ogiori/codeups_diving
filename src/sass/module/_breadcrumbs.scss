@@ -1,0 +1,39 @@
+@use "global" as *;
+
+.breadcrumbs {
+  display: flex;
+  gap: 0 rem(8);
+}
+
+
+.breadcrumbs span {
+  display: inline-flex;
+  font-size: rem(14);
+  line-height: calc(20 / 14);
+  font-weight: $regular;
+  align-items: center;
+  gap: 0 rem(15);
+}
+
+.breadcrumbs span a:not(:last-child)::after {
+  content: "";
+  display: inline-flex;
+  margin-left: rem(10);
+  width: rem(4);
+  height: rem(8);
+  background: url(../images/common/breadcrumbs_arrow.svg) no-repeat center / contain;
+}
+
+
+// /*===== 404ページ =====*/
+.breadcrumbs.breadcrumbs--404 span {
+  color: $white;
+}
+
+.breadcrumbs.breadcrumbs--404 span a::after {
+  background: url(../images/common/breadcrumbs_arrow-white.svg) no-repeat center / contain;
+}
+
+.breadcrumbs.breadcrumbs--404 span:last-child a::after {
+  display: none;
+}
