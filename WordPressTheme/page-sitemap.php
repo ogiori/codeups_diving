@@ -58,7 +58,7 @@ $sitemap = esc_url(home_url('/sitemap/'));
         <div class="nav-list__block">
           <!-- ダイビング情報 -->
           <ul class="nav-list__items">
-            <li class="nav-list__item">
+            <li class="nav-list__item nav-list__item--sitemap">
               <a href="<?php echo $information; ?>">ダイビング情報</a>
             </li>
             <li data-tab-id="license" class="nav-list__item js-nav-list-item">

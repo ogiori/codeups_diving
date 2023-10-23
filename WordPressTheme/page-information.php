@@ -46,7 +46,7 @@
             </p>
           </div>
           <figure class="card4__img">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/information_img.jpg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/archive-information_img.jpg" alt="">
           </figure>
         </div>
       </li>

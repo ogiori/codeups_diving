@@ -63,7 +63,7 @@ if (is_post_type_archive('campaign') || is_tax('campaign_category')) {
 
   // サイトマップ
 } elseif (is_page('sitemap')) {
-  $page_title = 'site map';
+  $page_title = 'site MAP';
   $page_img_sp = '/assets/images/common/page-other-head_sp.jpg';
   $page_img_pc = '/assets/images/common/page-other-head_pc.jpg';
   $alt = '熱帯魚';

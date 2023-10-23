@@ -97,7 +97,7 @@ add_action('init', 'remove_wysiwyg');
 /*===== エディタ非表示 (特定の固定ページ) =====*/
 add_filter('use_block_editor_for_post', function ($use_block_editor, $post) {
   if ($post->post_type === 'page') {
-    if (in_array($post->post_name, ['faq', 'about', 'price', 'campaign'])) {
+    if (in_array($post->post_name, ['faq', 'about', 'price', 'campaign', 'information','contact','thanks', 'sitemap', 'blog'])) {
       remove_post_type_support('page', 'editor');
       return false;
     }
@@ -147,7 +147,7 @@ function add_origin_thanks_page()
   echo <<< EOC
     <script>
       document.addEventListener( 'wpcf7mailsent', function( event ) {
-        location = 'http://localhost:10045/contact/thanks/';
+        location = 'https://xs873274.xsrv.jp/diving/contact/thanks/';
       }, false );
     </script>
    EOC;
@@ -245,13 +245,6 @@ function getPostViews($postID)
 
   return $count . ' Views';
 }
-
-
-
-
-
-
-
 
 // 管理画面に閲覧数項目を追加する
 function count_add_column($columns)

@@ -59,8 +59,9 @@
                 <div class="card1__cta">
                   <p class="card1__period"><?php the_field('campaign_year'); ?>/<?php the_field('month-start'); ?>/<?php the_field('day-start'); ?>-<?php the_field('month-end'); ?>/<?php the_field('day-end'); ?></p>
                   <p class="card1__cta-text">ご予約・お問い合わせはコチラ</p>
+                  <!-- ボタン -->
                   <div class="card1__btn">
-                    <a href="<?php echo esc_url(home_url('/contact/?post_id=' . $post->ID)); ?>" class="btn"><span>Contact us</span></a>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn"><span>Contact us</span></a>
                   </div>
                 </div>
               </div>
@@ -80,6 +81,5 @@
     <?php get_template_part('template/pagination1'); ?>
   </div>
 </div>
-
 
 <?php get_footer(); ?>
