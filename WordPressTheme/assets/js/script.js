@@ -102,7 +102,7 @@ $(function () {
     setTimeout(function () {
       //無くてもいいが有ると動作が安定する
       var target = $(urlHash);
-      var position = target.offset().top - headH - 200; //ヘッダーから100px下の位置
+      var position = target.offset().top - headH - 150; //ヘッダーから100px下の位置
       $("body,html").stop().animate({
         scrollTop: position
       }, animeSpeed);
@@ -156,6 +156,12 @@ function toggleModal() {
   hamburger.classList.toggle("is-active");
   modal.classList.toggle("is-active");
 }
+
+/*===== page-price =====*/
+var a = document.querySelectorAll(".js-nav-list-price a");
+a.forEach(function (b) {
+  b.addEventListener("click", toggleModal);
+});
 
 /*===== 画像アニメーション =====*/
 var triggers = document.querySelectorAll(".js-trigger");

@@ -1,11 +1,21 @@
 @use "global" as *;
 
 .page-sitemap-list__inner.inner {
-  max-width: rem(375);
+  max-width: rem(360);
   padding: 0 rem(9);
-
   @include mq(md) {
     max-width: rem(1130);
-    padding: 0 rem(25);
+    padding: 0 rem(20);
+  }
+}
+
+//safariのみ対応
+::-webkit-full-page-media,
+:future,
+:root .page-sitemap-list__inner.inner {
+  max-width: rem(375);
+  @include mq(md) {
+   max-width: rem(1130);
+    padding: 0 rem(10);
   }
 }

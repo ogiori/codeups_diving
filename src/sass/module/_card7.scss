@@ -53,6 +53,7 @@
   border-right: 1px solid $green;
   display: grid;
   place-content: center;
+  padding: 0 rem(2);
   @include mq(md) {
     width: calc(340 / 502 * 100%);
     display: flex;
@@ -84,4 +85,11 @@
 .card7__wrap:last-child dt,
 .card7__wrap:last-child dd {
   border-bottom: none;
+}
+
+// pc改行なし
+.card7__wrap dt br {
+  @include mq(md) {
+    display: none;
+  }
 }

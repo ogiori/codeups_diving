@@ -21,7 +21,7 @@
       <h2 class="about-contents__title">Dive into<br>
         the Ocean</h2>
       <?php if (SCF::get('about_text')) : ?>
-        <p class="about-contents__text"><?php echo SCF::get('about_text'); ?></p>
+        <p class="about-contents__text"><?php echo nl2br(SCF::get('about_text')) ; ?></p>
       <?php endif; ?>
 
     </div>

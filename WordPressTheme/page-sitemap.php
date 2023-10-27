@@ -101,6 +101,9 @@ $sitemap = esc_url(home_url('/sitemap/'));
             <li class="nav-list__item">
               <a href="<?php echo $price; ?>#price-fun">ファンダイビング</a>
             </li>
+            <li class="nav-list__item">
+              <a href="<?php echo $price; ?>#price-special">スペシャル<br class="u-mobile">ダイビング</a>
+            </li>
           </ul>
         </div>
         <div class="nav-list__block">

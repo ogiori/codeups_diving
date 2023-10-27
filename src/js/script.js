@@ -117,7 +117,7 @@ $(function () {
     $("body,html").scrollTop(0);
     setTimeout(function () { //無くてもいいが有ると動作が安定する
       var target = $(urlHash);
-      var position = target.offset().top - headH - 200;//ヘッダーから100px下の位置
+      var position = target.offset().top - headH - 150;//ヘッダーから100px下の位置
       $("body,html").stop().animate({
         scrollTop: position
       }, animeSpeed);
@@ -167,11 +167,19 @@ const hamburger = document.querySelector(".js-hamburger");
 const modal = document.querySelector(".js-modal");
 
 hamburger.addEventListener("click", toggleModal);
+
 function toggleModal() {
   document.body.classList.toggle("is-active");
   hamburger.classList.toggle("is-active");
   modal.classList.toggle("is-active");
 }
+
+/*===== page-price =====*/
+const a = document.querySelectorAll(".js-nav-list-price a");
+a.forEach((b) => {
+  b.addEventListener("click", toggleModal);
+});
+
 
 /*===== 画像アニメーション =====*/
 const triggers = document.querySelectorAll(".js-trigger");

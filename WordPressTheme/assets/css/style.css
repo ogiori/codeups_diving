@@ -9,6 +9,10 @@ body.is-active {
 	overflow: hidden;
 }
 
+body.blog {
+	padding-top: 0;
+}
+
 body.blog::before {
 	display: none;
 }
@@ -206,6 +210,10 @@ a {
 	margin-top: 3.25rem;
 }
 
+.page-blog-space.page-blog-space--single {
+	margin-top: 2.875rem;
+}
+
 .page-contact-footer {
 	margin-top: 9.125rem;
 }
@@ -247,7 +255,7 @@ a {
 }
 
 .pagination-space {
-	margin-top: 5rem;
+	margin-top: 4.6875rem;
 }
 
 .top-campaign-space {
@@ -375,7 +383,7 @@ a {
 }
 
 .about__btn {
-	margin: 2.4375rem auto 0;
+	margin: 3.1875rem auto 0;
 	text-align: center;
 }
 
@@ -428,10 +436,12 @@ a {
 	background: url(../images/common/breadcrumbs_arrow.svg) no-repeat center/contain;
 	content: "";
 	display: inline-flex;
-	height: 0.5rem;
-	margin-left: 0.625rem;
-	width: 0.25rem;
+	height: 0.6875rem;
+	margin-left: 0.4375rem;
+	width: 0.4375rem;
 }
+
+/*===== 404ページ =====*/
 
 .breadcrumbs.breadcrumbs--404 span {
 	color: #fff;
@@ -742,7 +752,6 @@ a {
 	background-color: #fff;
 	box-shadow: 0.125rem 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.25);
 	display: block;
-	min-width: 20.8125rem;
 	padding: 1rem 1.0625rem 1.5rem;
 	transition: opacity 0.3s;
 }
@@ -786,7 +795,6 @@ a {
 
 .card3 {
 	box-shadow: 0.125rem 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.25);
-	min-width: 21.5625rem;
 	padding: 1rem 1rem 1.5rem;
 }
 
@@ -1004,6 +1012,7 @@ a {
 	border-right: 1px solid #408F95;
 	display: grid;
 	justify-content: center;
+	padding: 0 0.125rem;
 	place-content: center;
 	text-align: center;
 	width: 69.5652173913%;
@@ -1097,7 +1106,6 @@ a {
 	transition: all 0.3s;
 }
 
-.category-tag:hover,
 .category-tag.current {
 	background-color: #408F95;
 	color: #fff;
@@ -1312,17 +1320,14 @@ a {
 }
 
 .footer {
-	align-content: center;
 	background-color: #408F95;
-	display: grid;
-	justify-content: center;
 	padding: 3rem 0 3.5rem;
-	place-content: center;
 	position: relative;
 }
 
 .footer__inner {
 	margin: 0 auto;
+	max-width: 23.25rem;
 	padding: 0 0.875rem;
 }
 
@@ -1423,14 +1428,24 @@ a {
 	display: none;
 }
 
+/* チェックボックス */
+
+.form__item.form__item--checkbox {
+	border-bottom: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2.5rem;
+	max-width: 17.625rem;
+	padding-bottom: 0;
+}
+
 /*===== 各種フォームリセット & スタイル =====*/
 
 /*===== テキスト、メール、TE、パスワード =====*/
 
 input[type=text],
 input[type=email],
-input[type=tel],
-input[type=password] {
+input[type=tel] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -1448,18 +1463,16 @@ input[type=password] {
 
 input[type=text]:focus,
 input[type=email]:focus,
-input[type=tel]:focus,
-input[type=password]:focus {
+input[type=tel]:focus {
 	border: 1px solid #408F95;
 	box-shadow: none;
-	color: #408F95;
+	color: #0D2936;
 	outline: none;
 }
 
 input[type=text]::-moz-placeholder,
 input[type=email]::-moz-placeholder,
-input[type=tel]::-moz-placeholder,
-input[type=password]::-moz-placeholder {
+input[type=tel]::-moz-placeholder {
 	color: #ddf0f1;
 	font-size: 1rem;
 	font-weight: 400;
@@ -1468,8 +1481,7 @@ input[type=password]::-moz-placeholder {
 
 input[type=text]::placeholder,
 input[type=email]::placeholder,
-input[type=tel]::placeholder,
-input[type=password]::placeholder {
+input[type=tel]::placeholder {
 	color: #ddf0f1;
 	font-size: 1rem;
 	font-weight: 400;
@@ -1505,78 +1517,72 @@ textarea:focus {
 	outline: none;
 }
 
-/*===== チェックボックス1 =====*/
+/*===== ラジオボタン =====*/
 
-input[type=checkbox] {
+input[type=radio] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	position: absolute;
 }
 
-.checkbox1 {
-	display: grid;
-	grid-template-columns: repeat(1, 1fr);
-}
-
-.checkbox1 input[type=checkbox] + span {
-	align-items: center;
+input[type=radio] + span {
+	color: #0D2936;
 	cursor: pointer;
-	display: inline-flex;
+	display: block;
 	font-size: 1rem;
 	font-weight: 400;
-	gap: 0 0.5rem;
 	line-height: 1.4375;
+	padding-left: 1.375rem;
 	position: relative;
 }
 
-.checkbox1 input[type=checkbox] + span::before {
+input[type=radio] + span::before {
 	border: 1px solid #408F95;
 	content: "";
 	display: block;
 	height: 0.875rem;
+	left: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 	width: 0.875rem;
 }
 
-.checkbox1 input[type=checkbox] + span::after {
+input[type=radio] + span::after {
 	border-bottom: 3px solid #c94800;
 	border-left: 3px solid #c94800;
 	content: "";
 	display: block;
-	height: 0.375rem;
+	height: 0.4375rem;
 	left: 0.125rem;
 	opacity: 0;
 	position: absolute;
-	top: 44%;
+	top: 45%;
 	transform: translateY(-50%) rotate(-45deg);
 	transition: opacity 0.3s;
 	width: 0.625rem;
 }
 
-input[type=checkbox]:checked + span::after {
+input[type=radio]:checked + span::after {
 	opacity: 1;
 }
 
-.form__item.form__item-input[type=checkbox]:first-of-type {
-	margin-top: 1rem;
-}
-
-.form__item.form__item-input[type=checkbox]:not(:first-of-type) {
-	margin-top: 0.1875rem;
-}
-
-.form__item.form__item--checkbox1 dd {
-	margin-top: 1rem;
+.wpcf7-form-control.wpcf7-radio {
+	display: block;
+	margin-top: 0.875rem;
 }
 
 .wpcf7-list-item {
-	margin: 0;
+	display: block;
+	margin-left: 0;
 }
 
-.wpcf7-list-item.last {
+.wpcf7-list-item:not(:first-child) {
 	margin-top: 0.3125rem;
 }
 
-/*===== チェックボックス2 =====*/
+/*===== チェックボックス =====*/
 
 input[type=checkbox] + span {
 	cursor: pointer;
@@ -1614,15 +1620,6 @@ input[type=checkbox] + span::after {
 
 input[type=checkbox]:checked + span::after {
 	opacity: 1;
-}
-
-.form__item.form__item--checkbox2 {
-	border-bottom: none;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 2.5rem;
-	max-width: 17.625rem;
-	padding-bottom: 0;
 }
 
 /*===== セレクトボックス =====*/
@@ -1769,10 +1766,6 @@ input[type=submit] {
 	width: 100%;
 }
 
-.form__item.form__item--checkbox1 dd .wpcf7-not-valid-tip {
-	height: 5.625rem;
-}
-
 .form__item.form__item--textarea .wpcf7-not-valid-tip {
 	height: 12.5rem;
 	top: -11.3125rem;
@@ -1794,6 +1787,48 @@ input[type=submit] {
 	padding: 0;
 	padding-left: 1em;
 	text-indent: -1em;
+}
+
+/* エラーがでたらプレスホルダーの色を変更 */
+
+input[type=text].wpcf7-not-valid::-moz-placeholder,
+input[type=email].wpcf7-not-valid::-moz-placeholder,
+input[type=tel].wpcf7-not-valid::-moz-placeholder {
+	color: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+input[type=text].wpcf7-not-valid::placeholder,
+input[type=email].wpcf7-not-valid::placeholder,
+input[type=tel].wpcf7-not-valid::placeholder {
+	color: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+/*===== ブラウザ別スタイル =====*/
+
+::-webkit-full-page-media,
+:future,
+:root .form__item.form__item--checkbox {
+	max-width: 17.8125rem;
+}
+
+_:lang(x)::-moz-placeholder,
+.form__item.form__item--checkbox {
+	max-width: 17.8125rem;
+}
+
+_:lang(x)::-moz-placeholder,
+.wpcf7-not-valid-tip {
+	height: 2.5rem;
+	top: -0.5rem;
+}
+
+_:lang(x)::-moz-placeholder,
+.form__item.form__item--textarea .wpcf7-not-valid-tip {
+	top: -11rem;
 }
 
 .gallery__list {
@@ -2202,7 +2237,7 @@ input[type=submit] {
 	background-color: #408F95;
 	color: #fff;
 	display: flex;
-	gap: 0 0.4375rem;
+	gap: 0 2.0625rem;
 }
 
 .nav-list.nav-list--height {
@@ -2245,7 +2280,7 @@ input[type=submit] {
 	font-weight: 400;
 	line-height: 1.125;
 	margin-left: 0.8125rem;
-	padding: 0.625rem;
+	padding: 0.625rem 0.3125rem;
 	width: 100%;
 }
 
@@ -2261,6 +2296,7 @@ input[type=submit] {
 	background-color: transparent;
 	background-color: initial;
 	color: #0D2936;
+	gap: 0 2.1875rem;
 	position: relative;
 	z-index: 1;
 }
@@ -2411,7 +2447,7 @@ input[type=submit] {
 }
 
 .page-blog__pagination {
-	margin-top: 5rem;
+	margin-top: 4.9375rem;
 }
 
 .page-blog__right {
@@ -2420,10 +2456,6 @@ input[type=submit] {
 }
 
 /*===== single-blog =====*/
-
-.page-blog__wrap.page-blog__wrap--single {
-	gap: 0 5.375rem;
-}
 
 .page-blog__left.page-blog__left--single {
 	padding: 0;
@@ -2513,8 +2545,14 @@ input[type=submit] {
 }
 
 .page-sitemap-list__inner.inner {
-	max-width: 23.4375rem;
+	max-width: 22.5rem;
 	padding: 0 0.5625rem;
+}
+
+::-webkit-full-page-media,
+:future,
+:root .page-sitemap-list__inner.inner {
+	max-width: 23.4375rem;
 }
 
 .page-thanks__inner.inner {
@@ -2560,26 +2598,27 @@ input[type=submit] {
 	max-width: 39.375rem;
 }
 
-.pagination1 {
+.wp-pagenavi {
 	align-items: center;
 	display: flex;
 	gap: 0 0.75rem;
 	justify-content: center;
 }
 
-.prev.page-numbers {
+.previouspostslink {
 	display: block;
-	margin-right: 2.5rem;
+	margin-right: 1.6875rem;
 	transition: all 0.3s;
 }
 
-.next.page-numbers {
-	margin-left: 2.5rem;
+.nextpostslink {
+	display: block;
+	margin-left: 1.6875rem;
 	transition: all 0.3s;
 }
 
-.prev.page-numbers,
-.next.page-numbers {
+.previouspostslink,
+.nextpostslink {
 	align-content: center;
 	border: 1px solid #408F95;
 	display: grid;
@@ -2590,8 +2629,8 @@ input[type=submit] {
 	width: 2.375rem;
 }
 
-.prev.page-numbers::before,
-.next.page-numbers::before {
+.previouspostslink::before,
+.nextpostslink::before {
 	content: "";
 	display: block;
 	height: 1rem;
@@ -2599,15 +2638,16 @@ input[type=submit] {
 	width: 0.5rem;
 }
 
-.prev.page-numbers::before {
+.previouspostslink::before {
 	background: url(../images/common/page-arrow_l.svg) no-repeat center/contain;
 }
 
-.next.page-numbers::before {
+.nextpostslink::before {
 	background: url(../images/common/page-arrow_r.svg) no-repeat center/contain;
 }
 
-.page-numbers {
+.wp-pagenavi a,
+.wp-pagenavi span {
 	align-content: center;
 	border: 1px solid #408F95;
 	color: #408F95;
@@ -2622,9 +2662,20 @@ input[type=submit] {
 	width: 2.375rem;
 }
 
-.page-numbers.current {
+.wp-pagenavi a .current {
 	background-color: #408F95;
 	color: #fff;
+}
+
+/* 前・次 のテキストを消す */
+
+.wp-pagenavi a {
+	font-size: 0;
+}
+
+.page.smaller,
+.page.larger {
+	font-size: 1rem;
 }
 
 .pagination2 {
@@ -2717,7 +2768,7 @@ input[type=submit] {
 }
 
 .price__list {
-	margin-top: 2.5625rem;
+	margin-top: 2.4375rem;
 }
 
 .price__btn {
@@ -3086,6 +3137,10 @@ html {
 	margin-top: 9.375rem;
 }
 
+.page-blog-space.page-blog-space--single {
+	margin-top: 8.9375rem;
+}
+
 .page-contact-footer {
 	margin-top: 10.125rem;
 }
@@ -3120,6 +3175,10 @@ html {
 
 .page-tos-space {
 	margin-top: 9.375rem;
+}
+
+.pagination-space {
+	margin-top: 5.0625rem;
 }
 
 .top-campaign-space {
@@ -3165,7 +3224,7 @@ html {
 .about-contents__block {
 	display: block;
 	display: flex;
-	gap: 0 4%;
+	gap: 0 3%;
 	left: calc(50% - 20.8125rem);
 	max-width: 52.5rem;
 	position: absolute;
@@ -3188,7 +3247,7 @@ html {
 	display: -webkit-box;
 	margin-top: 1.6875rem;
 	overflow: hidden;
-	width: 47%;
+	width: 48%;
 }
 
 ::-webkit-full-page-media,
@@ -3388,7 +3447,8 @@ html {
 }
 
 .card1 {
-	min-width: 20.8125rem;
+	min-width: 0;
+	min-width: initial;
 }
 
 .card1__img img {
@@ -3504,7 +3564,6 @@ html {
 }
 
 .card3 {
-	min-width: 32.5rem;
 	padding: 1.5rem;
 }
 
@@ -3595,6 +3654,10 @@ html {
 	width: 32.2709163347%;
 }
 
+.card7__wrap dt br {
+	display: none;
+}
+
 .cards1 {
 	gap: 5rem 2.5rem;
 	grid-template-columns: repeat(2, 1fr);
@@ -3616,6 +3679,11 @@ html {
 
 .cards7 {
 	gap: 5rem 0;
+}
+
+.category-tag:hover {
+	background-color: #408F95;
+	color: #fff;
 }
 
 .category__inner.inner {
@@ -3739,7 +3807,6 @@ html {
 }
 
 .footer__inner {
-	margin: 0 auto;
 	max-width: 70.625rem;
 	padding: 0 1.5625rem;
 }
@@ -3806,10 +3873,14 @@ html {
 	width: 100%;
 }
 
+.form__item.form__item--checkbox {
+	margin-top: 5.125rem;
+	max-width: 23.3125rem;
+}
+
 input[type=text],
 input[type=email],
-input[type=tel],
-input[type=password] {
+input[type=tel] {
 	margin: 0;
 }
 
@@ -3822,25 +3893,17 @@ textarea {
 	padding-bottom: 2.125rem;
 }
 
-.form__item.form__item-input[type=checkbox]:first-of-type {
-	margin-top: 0;
-}
-
-.form__item.form__item--checkbox1 dd {
+.wpcf7-form-control.wpcf7-radio {
 	margin-top: 0;
 }
 
 input[type=checkbox] + span {
+	align-items: center;
 	gap: 0 0.9375rem;
 }
 
 input[type=checkbox] + span::after {
 	top: 40%;
-}
-
-.form__item.form__item--checkbox2 {
-	margin-top: 5rem;
-	max-width: 23.4375rem;
 }
 
 select {
@@ -3875,6 +3938,28 @@ input[type=submit]:hover {
 
 .wpcf7-response-output {
 	max-width: 21.875rem;
+}
+
+::-webkit-full-page-media,
+:future,
+:root .wpcf7-response-output {
+	max-width: 22.5rem;
+}
+
+::-webkit-full-page-media,
+:future,
+:root .form__item.form__item--checkbox {
+	max-width: 23.75rem;
+}
+
+_:lang(x)::-moz-placeholder,
+.wpcf7-response-output {
+	max-width: 22.5rem;
+}
+
+_:lang(x)::-moz-placeholder,
+.form__item.form__item--checkbox {
+	max-width: 23.4375rem;
 }
 
 .gallery__list {
@@ -4072,15 +4157,19 @@ input[type=submit]:hover {
 }
 
 .nav-list {
-	gap: 0 6.8125rem;
+	gap: 0 7.25rem;
 	min-height: 0;
 	min-height: initial;
 }
 
 .nav-list__wrap {
 	display: flex;
-	gap: 0 6.75rem;
+	gap: 0 8.75rem;
 	justify-content: space-between;
+}
+
+.nav-list__block.nav-list__block--margin {
+	margin-left: -3.375rem;
 }
 
 .nav-list__item a:hover {
@@ -4150,6 +4239,10 @@ input[type=submit]:hover {
 	width: 27.2222222222%;
 }
 
+.page-blog__wrap.page-blog__wrap--single {
+	gap: 0 5.375rem;
+}
+
 .page-blog__left.page-blog__left--single {
 	width: 64.8148148148%;
 }
@@ -4191,7 +4284,14 @@ input[type=submit]:hover {
 
 .page-sitemap-list__inner.inner {
 	max-width: 70.625rem;
-	padding: 0 1.5625rem;
+	padding: 0 1.25rem;
+}
+
+::-webkit-full-page-media,
+:future,
+:root .page-sitemap-list__inner.inner {
+	max-width: 70.625rem;
+	padding: 0 0.625rem;
 }
 
 .page-thanks__inner.inner {
@@ -4211,20 +4311,21 @@ input[type=submit]:hover {
 	max-width: 70.625rem;
 }
 
-.prev.page-numbers:hover,
-.next.page-numbers:hover {
+.previouspostslink:hover,
+.nextpostslink:hover {
 	background-color: #408F95;
 }
 
-.prev.page-numbers:hover::before {
+.previouspostslink:hover::before {
 	background: url(../images/common/page-arrow_l-white.svg) no-repeat center/contain;
 }
 
-.next.page-numbers:hover::before {
+.nextpostslink:hover::before {
 	background: url(../images/common/page-arrow_r-white.svg) no-repeat center/contain;
 }
 
-.page-numbers:hover {
+.wp-pagenavi a:hover,
+.wp-pagenavi span {
 	background-color: #408F95;
 	color: #fff;
 }

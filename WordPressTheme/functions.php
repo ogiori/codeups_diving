@@ -153,6 +153,21 @@ function add_origin_thanks_page()
    EOC;
 }
 
+/*===== スパムメール対策 =====*/
+// Contact Form7のお問い合せフォーム項目にひらがなが無ければ送信不可
+add_filter('wpcf7_validate_textarea', 'wpcf7_validation_textarea_hiragana', 10, 2);
+add_filter('wpcf7_validate_textarea*', 'wpcf7_validation_textarea_hiragana', 10, 2);
+function wpcf7_validation_textarea_hiragana($result, $tag)
+{
+  $name = $tag['name'];
+  $value = (isset($_POST[$name])) ? (string) $_POST[$name] : '';
+  if ($value !== '' && !preg_match('/[ぁ-ん]/u', $value)) {
+    $result['valid'] = false;
+    $result['reason'] = array($name => 'エラー：こちらの内容は送信できません。');
+  }
+  return $result;
+}
+
 /*===== ぱんくずタイトル書き換え =====*/
 function my_bcn_breadcrumb_title($title, $this_type, $this_id)
 {

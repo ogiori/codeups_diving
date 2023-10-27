@@ -2,12 +2,12 @@
 
 .nav-list {
   display: flex;
-  gap: 0 rem(7);
+  gap: 0 rem(33);
   background-color: $green;
   color: $white;
   @include mq(md) {
     min-height: initial;
-    gap: 0 rem(109);
+    gap: 0 rem(116);
   }
 }
 
@@ -21,7 +21,13 @@
   @include mq(md) {
     display: flex;
     justify-content: space-between;
-    gap: 0 rem(108);
+    gap: 0 rem(140);
+  }
+}
+
+.nav-list__block.nav-list__block--margin {
+  @include mq(md) {
+    margin-left: rem(-54);
   }
 }
 
@@ -34,7 +40,7 @@
   transition: all 0.3s;
 }
 .nav-list__item.current {
- opacity: 0.7;
+  opacity: 0.7;
 }
 
 .nav-list__item:first-child::before {
@@ -54,7 +60,7 @@
   width: 100%;
   margin-left: rem(13);
   display: block;
-  padding: rem(10);
+  padding: rem(10) rem(5);
   font-size: rem(16);
   line-height: calc(18 / 16);
   font-weight: $regular;
@@ -78,6 +84,7 @@
   background-color: initial;
   position: relative;
   z-index: 1;
+  gap: 0 rem(35);
   @include mq(md) {
     gap: 0 rem(115);
   }

@@ -1,6 +1,12 @@
  <!-- Contact -->
  <?php if (!is_404() && !is_page('contact') && !is_page('thanks')) : ?>
-   <section id="contact" class="top-space contact">
+
+   <section id="contact" class="<?php if (is_front_page()) {
+                                  echo "top-space";
+                                } else {
+                                  echo "archive-contact";
+                                } ?> contact">
+
      <div class="contact__inner">
        <div class="contact__wrap">
          <div class="contact__wrap-left">
@@ -169,9 +175,12 @@
                <li class="nav-list__item">
                  <a href="<?php echo $price; ?>#price-fun">ファンダイビング</a>
                </li>
+               <li class="nav-list__item">
+                 <a href="<?php echo $price; ?>#price-special">スペシャル<br class="u-mobile">ダイビング</a>
+               </li>
              </ul>
            </div>
-           <div class="nav-list__block">
+           <div class="nav-list__block nav-list__block--margin">
              <!-- よくある質問 -->
              <ul class="nav-list__items">
                <li class="nav-list__item">

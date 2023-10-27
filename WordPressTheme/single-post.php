@@ -12,12 +12,15 @@
 <?php get_template_part('template/breadcrumb'); ?>
 
 <!-- コンテンツ -->
-<section class="page-blog-space page-blog">
+<section class="page-blog-space page-blog-space--single page-blog">
   <div class="page-blog__inner inner inner-icon">
 
-    <div class="page-blog__wrap">
+    <div class="page-blog__wrap page-blog__wrap--single">
       <!--===== 左 =====-->
-      <div class="page-blog__left">
+      <div class="page-blog__left <?php if (is_single($post)) {
+                                    echo "page-blog__left--single";
+                                  }
+                                  ?>">
 
         <?php
         if (have_posts()) :

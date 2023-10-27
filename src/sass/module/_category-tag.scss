@@ -14,7 +14,13 @@
   transition: all 0.3s;
 }
 
-.category-tag:hover,
+.category-tag:hover{
+  @include mq(md) {
+    color: $white;
+    background-color: $green;
+  }
+}
+
 .category-tag.current {
   color: $white;
   background-color: $green;

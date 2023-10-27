@@ -3,10 +3,10 @@
 .card3 {
   padding: rem(16) rem(16) rem(24);
   box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
-  min-width: rem(345);
+
   @include mq(md) {
     padding: rem(24);
-    min-width: rem(520)
+    
   }
 }
 

@@ -1,5 +1,8 @@
 @use "global" as *;
 
 .pagination-space {
-  margin-top: rem(80);
+  margin-top: rem(75);
+  @include mq(md) {
+    margin-top: rem(81);
+  }
 }

@@ -59,15 +59,21 @@
                     <li class="nav-list__item">
                       <a href="<?php echo $campaign; ?>">キャンペーン</a>
                     </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $campaign; ?>">ライセンス取得</a>
-                    </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $campaign; ?>">貸切体験ダイビング</a>
-                    </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $campaign; ?>">ナイトダイビング</a>
-                    </li>
+                    <?php
+                    $terms = get_terms(
+                      'campaign_category',
+                      array(
+                        //「説明」に記載されている順番にソート
+                        'parent' => 0,
+                        'orderby' => 'description'
+                      )
+                    );
+                    foreach ($terms as $term) : ?>
+                      <li class="nav-list__item">
+                        <a href="<?php echo esc_url(get_term_link($term->term_id)); ?>">
+                          <?php echo $term->name ?></a>
+                      </li>
+                    <?php endforeach; ?>
                   </ul>
                   <!-- 私たちについて -->
                   <ul class="nav-list__items">
@@ -82,14 +88,14 @@
                     <li class="nav-list__item">
                       <a href="<?php echo $information; ?>">ダイビング情報</a>
                     </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $information; ?>">ライセンス講習</a>
+                    <li data-tab-id="license" class="nav-list__item js-nav-list-item">
+                      <a href="<?php echo $information; ?>#license">ライセンス講習</a>
                     </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $information; ?>">体験ダイビング</a>
+                    <li data-tab-id="experience" class="nav-list__item js-nav-list-item">
+                      <a href="<?php echo $information; ?>#experience">体験ダイビング</a>
                     </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $information; ?>">ファンダイビング</a>
+                    <li data-tab-id="fun" class="nav-list__item js-nav-list-item">
+                      <a href="<?php echo $information; ?>#fun">ファンダイビング</a>
                     </li>
                   </ul>
                   <!-- ブログ -->
@@ -110,17 +116,20 @@
                   </ul>
                   <!-- 料金一覧 -->
                   <ul class="nav-list__items">
-                    <li class="nav-list__item">
+                    <li class="nav-list__item js-nav-list-price">
                       <a href="<?php echo $price; ?>">料金一覧</a>
                     </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $price; ?>">ライセンス講習</a>
+                    <li class="nav-list__item js-nav-list-price">
+                      <a href="<?php echo $price; ?>#price-license">ライセンス講習</a>
                     </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $price; ?>">体験ダイビング</a>
+                    <li class="nav-list__item js-nav-list-price">
+                      <a href="<?php echo $price; ?>#price-experience">体験ダイビング</a>
                     </li>
-                    <li class="nav-list__item">
-                      <a href="<?php echo $price; ?>">ファンダイビング</a>
+                    <li class="nav-list__item js-nav-list-price">
+                      <a href="<?php echo $price; ?>#price-fun">ファンダイビング</a>
+                    </li>
+                    <li class="nav-list__item js-nav-list-price">
+                      <a href="<?php echo $price; ?>#price-special">スペシャル<br>ダイビング</a>
                     </li>
                   </ul>
                 </div>

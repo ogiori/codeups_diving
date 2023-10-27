@@ -54,12 +54,24 @@
   }
 }
 
+/* チェックボックス */
+.form__item.form__item--checkbox {
+  border-bottom: none;
+  max-width: rem(282);
+  margin-top: rem(40);
+  margin-inline: auto;
+  padding-bottom: 0;
+  @include mq(md) {
+    max-width: rem(373);
+    margin-top: rem(82);
+  }
+}
+
 /*===== 各種フォームリセット & スタイル =====*/
 /*===== テキスト、メール、TE、パスワード =====*/
 input[type="text"],
 input[type="email"],
-input[type="tel"],
-input[type="password"] {
+input[type="tel"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -80,18 +92,16 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="password"]:focus {
+input[type="tel"]:focus {
   border: 1px solid $green;
   box-shadow: none;
   outline: none;
-  color: $green;
+  color: $navy;
 }
 
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
-input[type="tel"]::placeholder,
-input[type="password"]::placeholder {
+input[type="tel"]::placeholder {
   font-size: rem(16);
   line-height: calc(23 / 16);
   font-weight: $regular;
@@ -133,82 +143,72 @@ textarea:focus {
   border: 1px solid $green;
 }
 
-/*===== チェックボックス1 =====*/
-input[type="checkbox"] {
+/*===== ラジオボタン =====*/
+input[type="radio"] {
+  position: absolute;
   appearance: none;
 }
 
-.checkbox1 {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-}
-
-.checkbox1 input[type="checkbox"] + span {
+input[type="radio"] + span {
+  display: block;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0 rem(8);
+  padding-left: rem(22);
   position: relative;
   font-size: rem(16);
   line-height: calc(23 / 16);
   font-weight: $regular;
+  color: $navy;
 }
 
-.checkbox1 input[type="checkbox"] + span::before {
+input[type="radio"] + span::before {
   content: "";
   display: block;
   width: rem(14);
   height: rem(14);
   border: 1px solid $green;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
-.checkbox1 input[type="checkbox"] + span::after {
+input[type="radio"] + span::after {
   content: "";
   display: block;
   width: rem(10);
-  height: rem(6);
+  height: rem(7);
   border-bottom: 3px solid #c94800;
   border-left: 3px solid #c94800;
   position: absolute;
   left: rem(2);
-  top: 44%;
+  top: 45%;
   transform: translateY(-50%) rotate(-45deg);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-input[type="checkbox"]:checked + span::after {
+input[type="radio"]:checked + span::after {
   opacity: 1;
 }
 
-.form__item.form__item-input[type="checkbox"]:first-of-type {
-  margin-top: rem(16);
+.wpcf7-form-control.wpcf7-radio {
+  display: block;
+  margin-top: rem(14);
   @include mq(md) {
     margin-top: 0;
   }
 }
 
-.form__item.form__item-input[type="checkbox"]:not(:first-of-type) {
-  margin-top: rem(3);
-}
-
-.form__item.form__item--checkbox1 dd {
-  margin-top: rem(16);
-  @include mq(md) {
-    margin-top: 0;
-  }
-}
-
-//wpで付与されるマージンをリセット
 .wpcf7-list-item {
-  margin: 0;
+  margin-left: 0;
+  display: block;
 }
 
-.wpcf7-list-item.last {
+.wpcf7-list-item:not(:first-child) {
   margin-top: rem(5);
 }
 
-/*===== チェックボックス2 =====*/
+/*===== チェックボックス =====*/
 input[type="checkbox"] + span {
   display: inline-flex;
   gap: 0 rem(8);
@@ -219,6 +219,7 @@ input[type="checkbox"] + span {
   font-weight: $regular;
   @include mq(md) {
     gap: 0 rem(15);
+    align-items: center;
   }
 }
 
@@ -251,18 +252,6 @@ input[type="checkbox"] + span::after {
 
 input[type="checkbox"]:checked + span::after {
   opacity: 1;
-}
-
-.form__item.form__item--checkbox2 {
-  max-width: rem(282);
-  margin-inline: auto;
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-top: rem(40);
-  @include mq(md) {
-    margin-top: rem(80);
-    max-width: rem(375);
-  }
 }
 
 /*===== セレクトボックス =====*/
@@ -425,7 +414,6 @@ input[type="submit"]:hover {
 }
 
 /*===== エラーメッセージ =====*/
-//background-color
 .wpcf7-form-control-wrap {
   position: relative;
 }
@@ -439,10 +427,6 @@ input[type="submit"]:hover {
   height: rem(39);
   border: 1px solid #c94800;
   pointer-events: none;
-}
-
-.form__item.form__item--checkbox1 dd .wpcf7-not-valid-tip {
-  height: rem(90);
 }
 
 .form__item.form__item--textarea .wpcf7-not-valid-tip {
@@ -469,4 +453,63 @@ input[type="submit"]:hover {
   margin-bottom: rem(39);
   padding-left: 1em;
   text-indent: -1em;
+}
+
+/* エラーがでたらプレスホルダーの色を変更 */
+input[type="text"].wpcf7-not-valid::placeholder,
+input[type="email"].wpcf7-not-valid::placeholder,
+input[type="tel"].wpcf7-not-valid::placeholder {
+  color: $white;
+  position: relative;
+  z-index: 1;
+}
+
+/*===== ブラウザ別スタイル =====*/
+//safariのみ対応
+::-webkit-full-page-media,
+:future,
+:root .wpcf7-response-output {
+  @include mq(md) {
+    max-width: rem(360);
+  }
+}
+
+//safariのみ対応
+::-webkit-full-page-media,
+:future,
+:root .form__item.form__item--checkbox {
+  max-width: rem(285);
+  @include mq(md) {
+    max-width: rem(380);
+  }
+}
+
+//Fire foxのみ対応
+_:lang(x)::-moz-placeholder,
+.wpcf7-response-output {
+  @include mq(md) {
+    max-width: rem(360);
+  }
+}
+
+//Fire foxのみ対応
+_:lang(x)::-moz-placeholder,
+.form__item.form__item--checkbox {
+  max-width: rem(285);
+  @include mq(md) {
+    max-width: rem(375);
+  }
+}
+
+//Fire foxのみ対応
+_:lang(x)::-moz-placeholder,
+.wpcf7-not-valid-tip {
+  top: rem(-8);
+  height: rem(40);
+}
+
+//Fire foxのみ対応
+_:lang(x)::-moz-placeholder,
+.form__item.form__item--textarea .wpcf7-not-valid-tip {
+  top: rem(-176);
 }

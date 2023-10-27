@@ -1,27 +1,28 @@
 @use "global" as *;
 
-.pagination1 {
+.wp-pagenavi {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0 rem(12);
+ gap: 0 rem(12);
 }
 
 // 前
-.prev.page-numbers {
+.previouspostslink {
   display: block;
-  margin-right: rem(40);
+  margin-right: rem(27);
   transition: all 0.3s;
 }
 
 // 次
-.next.page-numbers {
-  margin-left: rem(40);
+.nextpostslink {
+  display: block;
+  margin-left: rem(27);
   transition: all 0.3s;
 }
 
-.prev.page-numbers,
-.next.page-numbers {
+.previouspostslink,
+.nextpostslink {
   display: grid;
   place-content: center;
   width: rem(38);
@@ -30,8 +31,8 @@
   transition: all 0.3s;
 }
 
-.prev.page-numbers::before,
-.next.page-numbers::before {
+.previouspostslink::before,
+.nextpostslink::before {
   content: "";
   display: block;
   width: rem(8);
@@ -39,34 +40,35 @@
   transition: all 0.3s;
 }
 
-.prev.page-numbers::before {
+.previouspostslink::before {
   background: url(../images/common/page-arrow_l.svg) no-repeat center / contain;
 }
 
-.next.page-numbers::before {
+.nextpostslink::before {
   background: url(../images/common/page-arrow_r.svg) no-repeat center / contain;
 }
 
-.prev.page-numbers:hover,
-.next.page-numbers:hover {
+.previouspostslink:hover,
+.nextpostslink:hover {
   @include mq(md) {
     background-color: $green;
   }
 }
 
-.prev.page-numbers:hover::before {
+.previouspostslink:hover::before {
   @include mq(md) {
     background: url(../images/common/page-arrow_l-white.svg) no-repeat center / contain;
   }
 }
 
-.next.page-numbers:hover::before {
+.nextpostslink:hover::before {
   @include mq(md) {
     background: url(../images/common/page-arrow_r-white.svg) no-repeat center / contain;
   }
 }
 
-.page-numbers {
+.wp-pagenavi a,
+.wp-pagenavi span {
   display: grid;
   place-content: center;
   width: rem(38);
@@ -79,14 +81,25 @@
   transition: all 0.3s;
 }
 
-.page-numbers.current {
+.wp-pagenavi a .current {
   background-color: $green;
   color: $white;
 }
 
-.page-numbers:hover {
+.wp-pagenavi a:hover,
+.wp-pagenavi span {
   @include mq(md) {
     background-color: $green;
     color: $white;
   }
+}
+
+/* 前・次 のテキストを消す */
+.wp-pagenavi a {
+  font-size: 0;
+}
+
+.page.smaller,
+.page.larger {
+  font-size: rem(16);
 }

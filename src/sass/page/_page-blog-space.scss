@@ -6,3 +6,10 @@
     margin-top: rem(150);
   }
 }
+
+.page-blog-space.page-blog-space--single {
+  margin-top: rem(46);
+  @include mq(md) {
+    margin-top: rem(143);
+  }
+}

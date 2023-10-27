@@ -46,6 +46,9 @@ body.is-active {
   overflow: hidden;
 }
 
+body.blog {
+padding-top: 0;
+}
 body.blog::before {
 display: none;
 }

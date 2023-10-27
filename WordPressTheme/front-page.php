@@ -178,7 +178,7 @@
         ?>
         <div class="about__contents">
           <p class="about__text2">
-            <?php echo esc_html($about_text); ?>
+            <?php echo nl2br(esc_html($about_text)); ?>
           </p>
 
           <!-- ボタン -->
@@ -341,8 +341,8 @@
 
         <?php endwhile;
         endif;
-        wp_reset_postdata(); ?>
-
+        wp_reset_postdata();
+        wp_reset_query(); ?>
       </ul>
     </div>
     <div class="voice__btn">

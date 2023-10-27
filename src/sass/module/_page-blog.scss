@@ -23,7 +23,7 @@
 }
 
 .page-blog__pagination {
-  margin-top: rem(80);
+  margin-top: rem(79);
   @include mq(md) {
     margin-top: rem(82);
   }
@@ -41,7 +41,9 @@
 
 /*===== single-blog =====*/
 .page-blog__wrap.page-blog__wrap--single {
-  gap: 0 rem(86);
+  @include mq(md) {
+    gap: 0 rem(86);
+  }
 }
 
 .page-blog__left.page-blog__left--single {
