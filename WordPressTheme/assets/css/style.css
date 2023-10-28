@@ -795,7 +795,9 @@ a {
 
 .card3 {
 	box-shadow: 0.125rem 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.25);
+	min-width: 21.5625rem;
 	padding: 1rem 1rem 1.5rem;
+	width: 100%;
 }
 
 .card3__wrap1 {
@@ -803,6 +805,10 @@ a {
 	display: flex;
 	gap: 0 1rem;
 	justify-content: space-between;
+}
+
+.card3__wrap2 {
+	min-width: 9.125rem;
 }
 
 .card3__meta {
@@ -1073,6 +1079,7 @@ a {
 .cards3__item {
 	display: flex;
 	margin: 0 auto;
+	width: 100%;
 }
 
 .cards4__item {
@@ -3565,6 +3572,10 @@ html {
 
 .card3 {
 	padding: 1.5rem;
+}
+
+.card3__wrap2 {
+	min-width: 14.75rem;
 }
 
 .card3__wrap3 {

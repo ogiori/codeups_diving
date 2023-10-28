@@ -97,7 +97,7 @@ add_action('init', 'remove_wysiwyg');
 /*===== エディタ非表示 (特定の固定ページ) =====*/
 add_filter('use_block_editor_for_post', function ($use_block_editor, $post) {
   if ($post->post_type === 'page') {
-    if (in_array($post->post_name, ['faq', 'about', 'price', 'campaign', 'information','contact','thanks', 'sitemap', 'blog'])) {
+    if (in_array($post->post_name, ['faq', 'about', 'price', 'campaign', 'information', 'contact', 'thanks', 'sitemap', 'blog'])) {
       remove_post_type_support('page', 'editor');
       return false;
     }
@@ -115,8 +115,14 @@ function change_posts_per_page($query)
   if ($query->is_post_type_archive('campaign')) { //カスタム投稿タイプを指定
     $query->set('posts_per_page', '4'); //表示件数を指定
   }
+  if ($query->is_tax('campaign_category')) { //カスタムタクソノミーを指定
+    $query->set('posts_per_page', '4'); //表示件数を指定
+  }
   //ヴォイス
   if ($query->is_post_type_archive('voice')) { //カスタム投稿タイプを指定
+    $query->set('posts_per_page', '6'); //表示件数を指定
+  }
+  if ($query->is_tax('voice_category')) { //カスタムタクソノミーを指定
     $query->set('posts_per_page', '6'); //表示件数を指定
   }
 }
@@ -133,12 +139,14 @@ function taxonomy_orderby_description($orderby, $args)
 }
 add_filter('get_terms_orderby', 'taxonomy_orderby_description', 10, 2);
 
+
 /*===== Contact Form 7の自動pタグ無効 =====*/
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false()
 {
   return false;
 }
+
 
 /*===== サンクスページへ遷移 =====*/
 add_action('wp_footer', 'add_origin_thanks_page');
@@ -152,6 +160,7 @@ function add_origin_thanks_page()
     </script>
    EOC;
 }
+
 
 /*===== スパムメール対策 =====*/
 // Contact Form7のお問い合せフォーム項目にひらがなが無ければ送信不可
@@ -167,6 +176,48 @@ function wpcf7_validation_textarea_hiragana($result, $tag)
   }
   return $result;
 }
+
+/*===== Contact Form 7 ドロップダウンリストに投稿タイトルをいれる =====*/
+function custom_selectlist($tag, $unused)
+{
+  // Check if the tag name is 'tag-name'
+  if ($tag['name'] !== 'tag-name') {
+    return $tag;
+  }
+
+  // Define the query parameters
+  $query_args = array(
+    'numberposts' => -1,
+    'post_type' => 'campaign',
+    'orderby' => 'ID',
+    'order' => 'ASC',
+  );
+
+  // Get the posts using get_posts()
+  $test_posts = get_posts($query_args);
+
+  // If no posts are found, return the original tag
+  if (empty($test_posts)) {
+    return $tag;
+  }
+
+  // Initialize arrays
+  $tag['raw_values'] = $tag['values'] = $tag['labels'] = array();
+
+  // Populate the arrays with post titles
+  foreach ($test_posts as $test_post) {
+    $post_title = $test_post->post_title;
+    $tag['raw_values'][] = $post_title;
+    $tag['values'][] = $post_title;
+    $tag['labels'][] = $post_title;
+  }
+
+  return $tag;
+}
+
+// Add a filter to override the form tag
+add_filter('wpcf7_form_tag', 'custom_selectlist', 10, 2);
+
 
 /*===== ぱんくずタイトル書き換え =====*/
 function my_bcn_breadcrumb_title($title, $this_type, $this_id)
@@ -301,5 +352,3 @@ function my_add_sort_by_meta($query)
     }
   }
 }
-
-// add_filter('manage_edit-post_sortable_columns','column_views_sortable'); // 投稿ページに追加

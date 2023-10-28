@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <!-- ぱんくず -->
-<?php get_template_part('template/blackened'); ?>
+<?php get_template_part('template/breadcrumb'); ?>
 
 <!-- コンテンツ -->
 <section class="page-404">

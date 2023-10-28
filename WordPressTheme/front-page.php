@@ -107,14 +107,14 @@
                     </figure>
                     <div class="card1__body-top">
                       <!-- カテゴリー -->
-                      <p class="card1__tag">
-                        <?php $term = get_the_terms($post->ID, 'campaign_category');
-                        if ($term) : ?>
+                      <?php $term = get_the_terms($post->ID, 'campaign_category');
+                      if ($term) : ?>
+                        <p class="card1__tag">
                           <?php echo $term[0]->name; ?>
-                      </p>
-                    <?php endif; ?>
-                    <!-- タイトル -->
-                    <h3 class="card1__title"><?php the_title(); ?></h3>
+                        </p>
+                      <?php endif; ?>
+                      <!-- タイトル -->
+                      <h3 class="card1__title"><?php echo wp_trim_words(get_the_title(), 18, '...'); ?></h3>
                     </div>
                     <div class="card1__body-bottom">
                       <p class="card1__text">全部コミコミ(お一人様)</p>
@@ -259,7 +259,7 @@
                   <?php the_time('Y.m.d'); ?>
                 </time>
                 <!-- タイトル -->
-                <h3 class="card2__title"><?php the_title(); ?></h3>
+                <h3 class="card2__title"><?php echo wp_trim_words(get_the_title(), 17, '...'); ?></h3>
                 <div class="card2__text">
                   <?php echo wp_trim_words(get_the_excerpt(), 85, ''); ?>
                 </div>
@@ -321,7 +321,7 @@
                       <?php endif; ?>
                     </div>
                     <!-- タイトル -->
-                    <h3 class="card3__title"><?php the_title(); ?></h3>
+                    <h3 class="card3__title"><?php echo wp_trim_words(get_the_title(), 21, '...'); ?></h3>
                   </div>
                   <div class="card3__img js-trigger">
                     <?php if (has_post_thumbnail()) : ?>
@@ -334,7 +334,7 @@
                   </div>
                 </div>
                 <div class="card3__text">
-                  <?php the_field('voice_text'); ?>
+                  <?php echo wp_trim_words(get_field('voice_text'), 170, '...'); ?>
                 </div>
               </div>
             </li>
