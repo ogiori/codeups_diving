@@ -17,7 +17,7 @@ if (is_post_type_archive('campaign') || is_tax('campaign_category')) {
   $page_title = 'about us';
   $page_img_sp = '/assets/images/common/page-about-head_sp.jpg';
   $page_img_pc = '/assets/images/common/page-about-head_pc.jpg';
-  $alt = '獅子舞の写真';
+  $alt = '狛犬の写真';
 
   //インフォメーション
 } elseif (is_page('information')) {

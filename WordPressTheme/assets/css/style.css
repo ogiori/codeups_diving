@@ -2318,6 +2318,14 @@ _:lang(x)::-moz-placeholder,
 	padding: 0.625rem 0.5rem;
 }
 
+.no-posts {
+	color: #0D2936;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1;
+	text-align: center;
+}
+
 .op-animation {
 	height: 100vh;
 	left: 0;

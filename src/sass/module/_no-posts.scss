@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.no-posts {
+  font-size: rem(16);
+  line-height: 1;
+  font-weight:$medium;
+  color: $navy;
+  text-align: center;
+}

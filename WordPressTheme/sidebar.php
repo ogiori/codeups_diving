@@ -51,7 +51,7 @@
         wp_reset_postdata(); ?>
       </ul>
     <?php else : ?>
-      <p>現在、人気記事はありません</p>
+      <p class="no-posts">現在、人気記事はありません</p>
     <?php endif; ?>
   </div>
 
@@ -103,7 +103,7 @@
         wp_reset_postdata(); ?>
       <?php else : ?>
         <!-- 投稿が無い場合の処理 -->
-        <p>投稿がありません。</p>
+        <p class="no-posts">投稿がありません。</p>
       <?php endif; ?>
     </div>
   </div>
@@ -182,7 +182,7 @@
       </ul>
     <?php else : ?>
       <!-- 投稿が無い場合の処理 -->
-      <p>投稿がありません。</p>
+      <p class="no-posts">投稿がありません。</p>
     <?php endif; ?>
   </div>
   <!-- ボタン -->

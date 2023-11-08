@@ -22,26 +22,26 @@
                 <div class="card3__wrap2">
                   <div class="card3__wrap3">
 
-                  <?php if (get_the_title()) : ?>
-                    <div class="card3__meta">
-                      <?php
-                      $voice_meta = get_field('voice_meta');
-                      $voice_age = $voice_meta['voice_age'];
-                      $voice_genre = $voice_meta['voice_genre'];
-                      ?>
-                      <!-- 年代 -->
-                      <?php if ($voice_age) : ?>
-                        <p class="card3__age"><?php echo $voice_age; ?></p>
-                      <?php endif; ?>
+                    <?php if (get_the_title()) : ?>
+                      <div class="card3__meta">
+                        <?php
+                        $voice_meta = get_field('voice_meta');
+                        $voice_age = $voice_meta['voice_age'];
+                        $voice_genre = $voice_meta['voice_genre'];
+                        ?>
+                        <!-- 年代 -->
+                        <?php if ($voice_age) : ?>
+                          <p class="card3__age"><?php echo $voice_age; ?></p>
+                        <?php endif; ?>
 
-                      <!-- ジャンル -->
-                      <?php if ($voice_genre) : ?>
-                        <p class="card3__gender">
-                          (<?php echo $voice_genre; ?>)
-                        </p>
-                      <?php endif; ?>
-                    </div>
-                  <?php endif; ?>
+                        <!-- ジャンル -->
+                        <?php if ($voice_genre) : ?>
+                          <p class="card3__gender">
+                            (<?php echo $voice_genre; ?>)
+                          </p>
+                        <?php endif; ?>
+                      </div>
+                    <?php endif; ?>
 
                     <!-- カテゴリー -->
                     <?php $term = get_the_terms($post->ID, 'voice_category');
@@ -78,12 +78,11 @@
               <?php endif; ?>
             </div>
           </li>
-
         <?php endwhile; ?>
       </ul>
     <?php else : ?>
       <!-- 投稿が無い場合の処理 -->
-      <p>投稿はありません。</p>
+      <p class="no-posts">投稿はありません。</p>
     <?php endif; ?>
   </div>
 </section>

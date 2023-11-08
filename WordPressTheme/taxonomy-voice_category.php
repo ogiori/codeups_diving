@@ -9,31 +9,56 @@
 <!-- カテゴリーリスト -->
 <?php get_template_part('template/category_taxonomy'); ?>
 
-
 <!-- カード郡 -->
 <section class="page-voice-space page-voice">
   <div class="page-voice__inner inner">
-    <ul class="cards3">
-      <!-- ループ -->
-      <?php
-      if (have_posts()) :
-        while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()) : ?>
+      <ul class="cards3">
+        <?php while (have_posts()) : the_post(); ?>
+          <!-- ループ -->
           <li class="cards3__item">
             <div class="card3">
               <div class="card3__wrap1">
                 <div class="card3__wrap2">
                   <div class="card3__wrap3">
-                    <div class="card3__meta">
-                      <p class="card3__age"><?php the_field('voice_age'); ?></p>
-                      <p class="card3__gender">(<?php the_field('voice_genre'); ?>)</p>
-                    </div>
-                    <p class="card3__tag">
-                      <?php $term = get_the_terms($post->ID, 'voice_category');
-                      echo $term[0]->name; ?>
-                    </p>
+
+                    <?php if (get_the_title()) : ?>
+                      <div class="card3__meta">
+                        <?php
+                        $voice_meta = get_field('voice_meta');
+                        $voice_age = $voice_meta['voice_age'];
+                        $voice_genre = $voice_meta['voice_genre'];
+                        ?>
+                        <!-- 年代 -->
+                        <?php if ($voice_age) : ?>
+                          <p class="card3__age"><?php echo $voice_age; ?></p>
+                        <?php endif; ?>
+
+                        <!-- ジャンル -->
+                        <?php if ($voice_genre) : ?>
+                          <p class="card3__gender">
+                            (<?php echo $voice_genre; ?>)
+                          </p>
+                        <?php endif; ?>
+                      </div>
+                    <?php endif; ?>
+
+                    <!-- カテゴリー -->
+                    <?php $term = get_the_terms($post->ID, 'voice_category');
+                    if ($term) : ?>
+                      <p class="card3__tag">
+                        <?php echo $term[0]->name; ?>
+                      </p>
+                    <?php endif; ?>
                   </div>
-                  <h3 class="card3__title"><?php the_title(); ?></h3>
+
+                  <!-- タイトル -->
+                  <?php if (get_the_title()) : ?>
+                    <h3 class="card3__title"><?php the_title(); ?></h3>
+                  <?php endif; ?>
                 </div>
+
+                <!-- 写真 -->
                 <div class="card3__img js-trigger">
                   <?php if (has_post_thumbnail()) : ?>
                     <!-- アイキャッチ画像指定されている場合 -->
@@ -44,15 +69,22 @@
                   <?php endif; ?>
                 </div>
               </div>
-              <div class="card3__text">
-                <?php the_field('voice_text'); ?>
-              </div>
+
+              <!-- テキスト -->
+              <?php if (the_field('voice_text')) : ?>
+                <div class="card3__text">
+                  <?php the_field('voice_text'); ?>
+                </div>
+              <?php endif; ?>
             </div>
           </li>
 
-      <?php endwhile;
-      endif; ?>
-    </ul>
+        <?php endwhile; ?>
+      </ul>
+    <?php else : ?>
+      <!-- 投稿が無い場合の処理 -->
+      <p class="no-posts">投稿はありません。</p>
+    <?php endif; ?>
   </div>
 </section>
 
@@ -62,6 +94,5 @@
     <?php get_template_part('template/pagination1'); ?>
   </div>
 </div>
-
 
 <?php get_footer(); ?>

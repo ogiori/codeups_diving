@@ -17,14 +17,8 @@
 
     <div class="page-blog__wrap page-blog__wrap--single">
       <!--===== 左 =====-->
-      <div class="page-blog__left
-      <?php if (is_single($post)) {
-        echo "page-blog__left--single";
-      } ?>">
-
-
-        <?php
-        if (have_posts()) :
+      <div class="page-blog__left <?php echo is_single($post) ? 'page-blog__left--single' : ''; ?>">
+        <?php if (have_posts()) :
           while (have_posts()) : the_post(); ?>
 
             <div class="single-blog">
@@ -47,14 +41,13 @@
             </div>
 
           <?php endwhile; ?>
-          <p>本文がありません</p>
+          <p class="no-posts">本文がありません</p>
         <?php endif; ?>
 
         <!-- ページネーション -->
         <div class="page-blog__pagination">
           <?php get_template_part('template/pagination2'); ?>
         </div>
-
       </div>
 
       <!--===== 右 =====-->

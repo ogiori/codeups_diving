@@ -15,12 +15,10 @@
       <div class="page-blog__left">
         <!-- カード群 -->
 
-        <?php
-        if (have_posts()) : ?>
+        <?php if (have_posts()) : ?>
           <ul class="cards2 cards2--2columns">
             <!-- ループ -->
-            <?php
-            while (have_posts()) : the_post(); ?>
+            <?php while (have_posts()) : the_post(); ?>
               <!-- 投稿内容 -->
               <li class="cards2__item">
                 <a href="<?php the_permalink(); ?>" class="card2 card2--hover">
@@ -58,9 +56,7 @@
           </ul>
         <?php else : ?>
           <!-- 投稿が無い場合の処理 -->
-          <p>
-            投稿がありません。
-          </p>
+          <p class="no-posts"> 投稿がありません。</p>
         <?php endif; ?>
 
         <!-- ページネーション -->
@@ -78,7 +74,5 @@
 
   </div>
 </section>
-
-
 
 <?php get_footer(); ?>

@@ -9,8 +9,7 @@
 <!-- アコーディオン -->
 <section class="page-faq-accordion-space page-faq-accordion">
   <div class="page-faq-accordion__inner inner inner-icon">
-    <?php
-    $faqs = SCF::get_option_meta('faq', 'faq-list');
+    <?php $faqs = SCF::get_option_meta('faq', 'faq-list');
     if ($faqs) : ?>
       <dl class="faq-accordion js-faq-accordion">
         <?php
@@ -25,7 +24,7 @@
       </dl>
     <?php else : ?>
       <!-- 質問がないとき -->
-      <p>質問はありません</p>
+      <p class="no-posts">質問はありません</p>
     <?php endif; ?>
   </div>
 </section>

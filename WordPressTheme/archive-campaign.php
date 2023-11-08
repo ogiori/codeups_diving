@@ -41,7 +41,7 @@
 
                 <!-- タイトル -->
                 <?php if (get_the_title()) : ?>
-                  <h3 class="card1__title">
+                  <h3 class="card1__title card1__title--archive">
                     <?php the_title();; ?>
                   </h3>
                 <?php endif; ?>
@@ -110,9 +110,8 @@
       </ul>
     <?php else : ?>
       <!-- 投稿が無い場合の処理 -->
-      <p>投稿はありません。</p>
+      <p class="no-posts">投稿はありません。</p>
     <?php endif; ?>
-
   </div>
 </div>
 

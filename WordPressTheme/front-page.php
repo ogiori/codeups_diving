@@ -159,7 +159,7 @@
               wp_reset_postdata(); ?>
             <?php else : ?>
               <!-- 投稿が無い場合の処理 -->
-              <p>投稿がありません。</p>
+              <p class="no-posts">投稿がありません。</p>
             <?php endif; ?>
           </div>
 
@@ -303,10 +303,9 @@
         </ul>
       <?php else : ?>
         <!-- 投稿が無い場合の処理 -->
-        <p>投稿がありません。</p>
+        <p class="no-posts">投稿がありません。</p>
       <?php endif; ?>
     </div>
-
     <!-- ボタン -->
     <div class="blog__btn">
       <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="btn"><span>View more</span></a>
@@ -394,7 +393,7 @@
         </ul>
       <?php else : ?>
         <!-- 投稿が無い場合の処理 -->
-        <p>投稿がありません。</p>
+        <p class="no-posts">投稿がありません。</p>
       <?php endif; ?>
     </div>
     <!-- ボタン -->
@@ -429,12 +428,10 @@
             <h3 class="charge-list__title">ライセンス講習</h3>
             <dl class="charge-list__items">
               <?php
-              // 料金ページの情報取得
-              $page_price = get_page_by_path('price');
-              $license_items = SCF::get('price_license', $page_price->ID);
-              foreach ($license_items as $license_item => $field_value) :
-                $license_title = $field_value['price_license-title'];
-                $license_charge = $field_value['price_license-charge'];
+              $price_license = SCF::get_option_meta('price', 'price_license');
+              foreach ($price_license as $license_item) :
+                $license_title = $license_item['license_title'];
+                $license_charge = $license_item['license_price'];
               ?>
                 <!-- ループ -->
                 <div class="charge-list__item">
@@ -453,10 +450,10 @@
             <h3 class="charge-list__title">体験ダイビング</h3>
             <dl class="charge-list__items">
               <?php
-              $experience_items = SCF::get('price_experience', $page_price->ID);
-              foreach ($experience_items as $experience_item => $field_value) :
-                $experience_title = $field_value['price_experience-title'];
-                $experience_charge = $field_value['price_experience-charge'];
+              $price_experience = SCF::get_option_meta('price', 'price_experience');
+              foreach ($price_experience as $experience_item) :
+                $experience_title = $experience_item['experience_title'];
+                $experience_charge = $experience_item['experience_price'];
               ?>
                 <!-- ループ -->
                 <div class="charge-list__item">
@@ -474,11 +471,10 @@
           <div class="charge-list__wrap">
             <h3 class="charge-list__title">ファンダイビング</h3>
             <dl class="charge-list__items">
-              <?php
-              $fun_items = SCF::get('price_fun', $page_price->ID);
-              foreach ($fun_items as $fun_item => $field_value) :
-                $fun_title = $field_value['price_fun-title'];
-                $fun_charge = $field_value['price_fun-charge'];
+              <?php $price_fun = SCF::get_option_meta('price', 'price_fun');
+              foreach ($price_fun as $fun_item => $field_value) :
+                $fun_title = $field_value['fun_title'];
+                $fun_charge = $field_value['fun_price'];
               ?>
                 <!-- ループ -->
                 <div class="charge-list__item">
@@ -496,11 +492,10 @@
           <div class="charge-list__wrap">
             <h3 class="charge-list__title">スペシャルダイビング</h3>
             <dl class="charge-list__items">
-              <?php
-              $special_items = SCF::get('price_special', $page_price->ID);
-              foreach ($special_items as $special_item => $field_value) :
-                $special_title = $field_value['price_special-title'];
-                $special_charge = $field_value['price_special-charge'];
+              <?php $price_special = SCF::get_option_meta('price', 'price_special');
+              foreach ($price_special as $special_item) :
+                $special_title = $special_item['special_title'];
+                $special_charge = $special_item['special_price'];
               ?>
                 <!-- ループ -->
                 <div class="charge-list__item">

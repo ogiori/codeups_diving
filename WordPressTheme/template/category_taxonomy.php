@@ -1,4 +1,3 @@
-
 <div class="category-space category">
   <div class="category__inner inner inner-icon">
 
@@ -39,9 +38,9 @@
       foreach ($terms as $term) : ?>
         <li class="p-list__item">
           <a href="<?php echo esc_url(get_term_link($term->term_id)); ?>" class="category-tag
-               <?php if ($term_slug === $term->slug) {
-                  echo 'current';
-                } ?>">
+            <?php if ($term_slug === $term->slug) {
+              echo 'current';
+            } ?>">
             <?php echo $term->name; ?></a>
         </li>
       <?php endforeach; ?>
