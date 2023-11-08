@@ -21,9 +21,8 @@
       <h2 class="about-contents__title">Dive into<br>
         the Ocean</h2>
       <?php if (SCF::get('about_text')) : ?>
-        <p class="about-contents__text"><?php echo nl2br(SCF::get('about_text')) ; ?></p>
+        <p class="about-contents__text"><?php echo nl2br(SCF::get('about_text')); ?></p>
       <?php endif; ?>
-
     </div>
   </div>
 </section>
@@ -41,23 +40,20 @@
     <div class="about-gallery__contents">
       <div class="gallery">
         <div class="gallery__modal js-gallery"></div>
+
         <ul class="gallery__list">
-
-          <?php
-          $gallerys = SCF::get('gallerys');
+          <?php $gallerys = SCF::get_option_meta('gallery', 'gallerys');
           foreach ($gallerys as $gallery) :
-
-            $img_data = wp_get_attachment_url($gallery['about_gallery']); // 画像のURLを取得
-            $alt = get_post_meta($gallery['about_gallery'], '_wp_attachment_image_alt', true) ?: get_post($gallery['about_gallery'])->post_title;
-          ?>
+            $img_data = wp_get_attachment_url($gallery['gallery']); // 画像のURLを取得
+            $alt = get_post_meta($gallery['gallery'], '_wp_attachment_image_alt', true) ?: get_post($gallery['gallery'])->post_title; ?>
 
             <li class="gallery__item js-gallery">
               <img src="<?php echo $img_data; ?>" alt="<?php echo $alt; ?>">
             </li>
 
           <?php endforeach; ?>
-
         </ul>
+
       </div>
     </div>
   </div>

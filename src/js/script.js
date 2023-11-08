@@ -107,17 +107,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/*===== ページスクロール =====*/
+/*===== スクロール =====*/
 //リンク先の位置調整
 $(function () {
   var headH = $(".js-header").outerHeight();
   var animeSpeed = 500;
   var urlHash = location.hash; //URLのハッシュタグを取得
-  if (urlHash) { //ハッシュタグが有る場合
+  if (urlHash) {
+    //ハッシュタグが有る場合
     $("body,html").scrollTop(0);
-    setTimeout(function () { //無くてもいいが有ると動作が安定する
+    setTimeout(function () {
+      //無くてもいいが有ると動作が安定する
       var target = $(urlHash);
-      var position = target.offset().top - headH - 150;//ヘッダーから100px下の位置
+      var position = target.offset().top - headH - 150; //ヘッダーから100px下の位置
       $("body,html").stop().animate({
         scrollTop: position
       }, animeSpeed);
@@ -175,9 +177,9 @@ function toggleModal() {
 }
 
 /*===== page-price =====*/
-const a = document.querySelectorAll(".js-nav-list-price a");
-a.forEach((b) => {
-  b.addEventListener("click", toggleModal);
+const navLists = document.querySelectorAll(".js-nav-list-price a");
+navLists.forEach((navList) => {
+  navList.addEventListener("click", toggleModal);
 });
 
 

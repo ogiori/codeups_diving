@@ -9,23 +9,24 @@
 <!-- アコーディオン -->
 <section class="page-faq-accordion-space page-faq-accordion">
   <div class="page-faq-accordion__inner inner inner-icon">
-    <dl class="faq-accordion js-faq-accordion">
-
-      <?php
-      $free_item = SCF::get('faq-list');
-      foreach ($free_item as $fields) :
-      ?>
-
-        <div class="faq-accordion__item js-faq-accordion-trigger">
-          <dt class="faq-accordion__title"><?php echo $fields['faq_question']; ?></dt>
-          <dd class="faq-accordion__contents js-faq-accordion-contents">
-            <?php echo nl2br($fields['faq_answer']); ?>
-          </dd>
-        </div>
-
-      <?php endforeach; ?>
-
-    </dl>
+    <?php
+    $faqs = SCF::get_option_meta('faq', 'faq-list');
+    if ($faqs) : ?>
+      <dl class="faq-accordion js-faq-accordion">
+        <?php
+        foreach ($faqs as $faq) : ?>
+          <div class="faq-accordion__item js-faq-accordion-trigger">
+            <dt class="faq-accordion__title"><?php echo $faq['faq_question']; ?></dt>
+            <dd class="faq-accordion__contents js-faq-accordion-contents">
+              <?php echo nl2br($faq['faq_answer']); ?>
+            </dd>
+          </div>
+        <?php endforeach; ?>
+      </dl>
+    <?php else : ?>
+      <!-- 質問がないとき -->
+      <p>質問はありません</p>
+    <?php endif; ?>
   </div>
 </section>
 <?php get_footer(); ?>

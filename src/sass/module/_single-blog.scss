@@ -1,6 +1,7 @@
 @use "global" as *;
 
 .single-blog {
+  // 時間
   &__time {
     font-size: rem(14);
     line-height: calc(18 / 14);
@@ -10,6 +11,7 @@
     z-index: 1;
   }
 
+  // タイトル
   &__title {
     margin-top: rem(8);
     font-size: rem(24);
@@ -26,54 +28,57 @@
     }
   }
 
-  figure {
-    margin-top: rem(24);
-    @include mq(md)  {
-      margin-top: rem(40)
-    };
-  }
-
-  figure img {
-    width: 100%;
-    object-fit: cover;
-    @include mq(md) {
-      aspect-ratio: 700 /468;
+  // コンテンツ
+  &__content {
+    figure {
+      margin-top: rem(24);
+      @include mq(md) {
+        margin-top: rem(40);
+      }
     }
-  }
 
-  p {
-    margin-top: rem(24);
-    font-size: rem(16);
-    line-height: calc(24 / 16);
-    font-weight: $regular;
-    @include mq(md) {
-      margin-top: rem(40);
+    figure img {
+      width: 100%;
+      object-fit: cover;
+      @include mq(md) {
+        aspect-ratio: 700 /468;
+      }
     }
-  }
 
-  ul {
-    margin-top: rem(24);
-    display: grid;
-    gap: rem(4) 0;
-    @include mq(md) {
-      margin-top: rem(40);
+    p {
+      margin-top: rem(24);
+      font-size: rem(16);
+      line-height: calc(24 / 16);
+      font-weight: $regular;
+      @include mq(md) {
+        margin-top: rem(40);
+      }
     }
-  }
 
-  ul li {
-    display: flex;
-    align-items: center;
-    gap: 0 rem(9);
-    font-size: rem(16);
-    line-height: calc(24 / 16);
-    font-weight: $regular;
-  }
+    ul {
+      margin-top: rem(24);
+      display: grid;
+      gap: rem(4) 0;
+      @include mq(md) {
+        margin-top: rem(40);
+      }
+    }
 
-  ul li::before {
-    content: "";
-    display: block;
-    width: rem(18);
-    height: rem(18);
-    background: url(../images/common/hitode-green.svg) no-repeat center / contain;
+    ul li {
+      display: flex;
+      align-items: center;
+      gap: 0 rem(9);
+      font-size: rem(16);
+      line-height: calc(24 / 16);
+      font-weight: $regular;
+    }
+
+    ul li::before {
+      content: "";
+      display: block;
+      width: rem(18);
+      height: rem(18);
+      background: url(../images/common/hitode-green.svg) no-repeat center / contain;
+    }
   }
 }

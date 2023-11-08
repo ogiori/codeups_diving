@@ -2985,31 +2985,31 @@ _:lang(x)::-moz-placeholder,
 	z-index: 1;
 }
 
-.single-blog figure {
+.single-blog__content figure {
 	margin-top: 1.5rem;
 }
 
-.single-blog figure img {
+.single-blog__content figure img {
 	-o-object-fit: cover;
 	object-fit: cover;
 	width: 100%;
 }
 
-.single-blog p {
+.single-blog__content p {
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
 	margin-top: 1.5rem;
 }
 
-.single-blog ul {
+.single-blog__content ul {
 	grid-gap: 0.25rem 0;
 	display: grid;
 	gap: 0.25rem 0;
 	margin-top: 1.5rem;
 }
 
-.single-blog ul li {
+.single-blog__content ul li {
 	align-items: center;
 	display: flex;
 	font-size: 1rem;
@@ -3018,7 +3018,7 @@ _:lang(x)::-moz-placeholder,
 	line-height: 1.5;
 }
 
-.single-blog ul li::before {
+.single-blog__content ul li::before {
 	background: url(../images/common/hitode-green.svg) no-repeat center/contain;
 	content: "";
 	display: block;
@@ -4412,19 +4412,19 @@ _:lang(x)::-moz-placeholder,
 	padding-bottom: 0;
 }
 
-.single-blog figure {
+.single-blog__content figure {
 	margin-top: 2.5rem;
 }
 
-.single-blog figure img {
+.single-blog__content figure img {
 	aspect-ratio: 700/468;
 }
 
-.single-blog p {
+.single-blog__content p {
 	margin-top: 2.5rem;
 }
 
-.single-blog ul {
+.single-blog__content ul {
 	margin-top: 2.5rem;
 }
 

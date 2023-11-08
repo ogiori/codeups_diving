@@ -17,26 +17,38 @@
 
     <div class="page-blog__wrap page-blog__wrap--single">
       <!--===== 左 =====-->
-      <div class="page-blog__left <?php if (is_single($post)) {
-                                    echo "page-blog__left--single";
-                                  }
-                                  ?>">
+      <div class="page-blog__left
+      <?php if (is_single($post)) {
+        echo "page-blog__left--single";
+      } ?>">
+
 
         <?php
         if (have_posts()) :
           while (have_posts()) : the_post(); ?>
 
-            <!-- 時間 -->
-            <time datetime="<?php the_time('c'); ?>" class="single-blog__time">
-              <?php the_time('Y.m.d'); ?>
-            </time>
-            <!-- タイトル -->
-            <h2 class="single-blog__title"><?php the_title(); ?></h2>
-            <!-- コンテンツ -->
-            <?php get_template_part('template/single-blog'); ?>
+            <div class="single-blog">
+              <!-- 時間 -->
+              <time datetime="<?php the_time('c'); ?>" class="single-blog__time">
+                <?php the_time('Y.m.d'); ?>
+              </time>
 
-        <?php endwhile;
-        endif; ?>
+              <!-- タイトル -->
+              <?php if (get_the_title()) : ?>
+                <h2 class="single-blog__title"><?php the_title(); ?></h2>
+              <?php endif; ?>
+
+              <!-- コンテンツ -->
+              <?php if (get_the_content()) : ?>
+                <div class="single-blog__content">
+                  <?php the_content(); ?>
+                </div>
+              <?php endif; ?>
+            </div>
+
+          <?php endwhile; ?>
+          <p>本文がありません</p>
+        <?php endif; ?>
 
         <!-- ページネーション -->
         <div class="page-blog__pagination">
@@ -48,7 +60,7 @@
       <!--===== 右 =====-->
       <div class="page-blog__right">
         <!-- サイドバー -->
-        <?php get_template_part('template/sidebar'); ?>
+        <?php get_sidebar(); ?>
       </div>
     </div>
 

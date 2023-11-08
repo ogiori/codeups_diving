@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/*===== ページスクロール =====*/
+/*===== スクロール =====*/
 //リンク先の位置調整
 $(function () {
   var headH = $(".js-header").outerHeight();
@@ -158,9 +158,9 @@ function toggleModal() {
 }
 
 /*===== page-price =====*/
-var a = document.querySelectorAll(".js-nav-list-price a");
-a.forEach(function (b) {
-  b.addEventListener("click", toggleModal);
+var navLists = document.querySelectorAll(".js-nav-list-price a");
+navLists.forEach(function (navList) {
+  navList.addEventListener("click", toggleModal);
 });
 
 /*===== 画像アニメーション =====*/
