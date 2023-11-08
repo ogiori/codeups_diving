@@ -203,16 +203,9 @@
         </p>
 
         <!-- テキスト右 -->
-        <?php
-        $page_about = get_page_by_path('about');
-        $about_text = SCF::get('about_text', $page_about->ID);
-        ?>
         <div class="about__contents">
-          <?php if ($about_text) : ?>
-            <p class="about__text2">
-              <?php echo nl2br(esc_html($about_text)); ?>
-            </p>
-          <?php endif; ?>
+          <p class="about__text2">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+          </p>
 
           <!-- ボタン -->
           <div class="about__btn">
