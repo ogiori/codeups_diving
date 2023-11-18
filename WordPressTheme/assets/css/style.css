@@ -947,10 +947,14 @@ a {
 }
 
 .card5__title {
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
 	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.4375;
 	margin-top: 0.3125rem;
+	overflow: hidden;
 }
 
 .card6__img {
@@ -2973,6 +2977,15 @@ _:lang(x)::-moz-placeholder,
 	margin-top: 1.5625rem;
 }
 
+.single-blog img {
+	-o-object-fit: cover;
+	aspect-ratio: 345/231;
+	height: 100%;
+	margin-top: 1.5rem;
+	object-fit: cover;
+	width: 100%;
+}
+
 .single-blog__time {
 	font-family: "Gotu", sans-serif;
 	font-size: 0.875rem;
@@ -4412,6 +4425,11 @@ _:lang(x)::-moz-placeholder,
 
 .sidebar__title:not(:first-child) {
 	margin-top: 5.5625rem;
+}
+
+.single-blog img {
+	aspect-ratio: 700/468;
+	margin-top: 2.5rem;
 }
 
 .single-blog__title {

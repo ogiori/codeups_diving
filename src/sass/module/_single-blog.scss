@@ -1,6 +1,18 @@
 @use "global" as *;
 
 .single-blog {
+  img {
+    aspect-ratio: 345/ 231;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: rem(24);
+    @include mq(md) {
+      aspect-ratio: 700/ 468;
+      margin-top: rem(40);
+    }
+  }
+
   // 時間
   &__time {
     font-size: rem(14);
