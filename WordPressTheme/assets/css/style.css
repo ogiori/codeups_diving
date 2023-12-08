@@ -540,7 +540,7 @@ a {
 }
 
 .campaign-swiper__container {
-	height: auto;
+	height: 25rem;
 	width: 100%;
 }
 
@@ -550,8 +550,6 @@ a {
 }
 
 .campaign-swiper__slide {
-	display: flex;
-	height: auto;
 	width: 17.5625rem;
 }
 
@@ -632,7 +630,6 @@ a {
 }
 
 .card1__body-bottom {
-	margin-top: auto;
 	padding: 0.5rem 1rem 1.5rem;
 }
 
@@ -656,6 +653,7 @@ a {
 	font-size: 1.25rem;
 	font-weight: 700;
 	line-height: 1;
+	margin-top: -0.3125rem;
 	padding-left: 1.1875rem;
 	width: 43.6018957346%;
 }
@@ -3441,6 +3439,7 @@ html {
 }
 
 .campaign-swiper__container {
+	height: 30rem;
 	margin-top: 1.5625rem;
 }
 
@@ -3471,7 +3470,7 @@ html {
 }
 
 .campaign__btn {
-	margin-top: 4.3125rem;
+	margin-top: 4rem;
 }
 
 .card1 {

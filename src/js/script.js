@@ -120,9 +120,12 @@ $(function () {
       //無くてもいいが有ると動作が安定する
       var target = $(urlHash);
       var position = target.offset().top - headH - 150; //ヘッダーから100px下の位置
-      $("body,html").stop().animate({
-        scrollTop: position
-      }, animeSpeed);
+      $("body,html").stop().animate(
+        {
+          scrollTop: position,
+        },
+        animeSpeed
+      );
     }, 0);
   }
 });
@@ -181,7 +184,6 @@ const navLists = document.querySelectorAll(".js-nav-list-price a");
 navLists.forEach((navList) => {
   navList.addEventListener("click", toggleModal);
 });
-
 
 /*===== 画像アニメーション =====*/
 const triggers = document.querySelectorAll(".js-trigger");

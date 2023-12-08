@@ -1,11 +1,11 @@
 @use "global" as *;
 
 .card1 {
-  display: flex;
-  flex-direction: column;
   box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
   word-break: break-word;
   min-width: rem(281);
+  display: flex;
+  flex-direction: column;
   @include mq(md) {
     min-width: initial;
   }
@@ -55,7 +55,6 @@
 
 .card1__body-bottom {
   padding: rem(8) rem(16) rem(24);
-  margin-top: auto;
   @include mq(md) {
     padding-top: rem(16);
     padding-bottom: rem(40);
@@ -88,6 +87,7 @@
   font-weight: $bold;
   width: calc(92 / 211 * 100%);
   padding-left: rem(19);
+  margin-top: rem(-5);
   @include mq(md) {
     font-size: rem(24);
   }

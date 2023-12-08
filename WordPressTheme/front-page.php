@@ -119,7 +119,7 @@
            <!-- タイトル -->
            <?php if (get_the_title()) : ?>
             <h3 class="card1__title">
-             <?php echo wp_trim_words(get_the_title(), 30, '...'); ?>
+             <?php echo wp_trim_words(get_the_title(), 28, '...'); ?>
             </h3>
            <?php endif; ?>
           </div>
