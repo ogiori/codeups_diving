@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
- gap: 0 rem(12);
+  gap: 0 rem(12);
 }
 
 // 前
@@ -81,7 +81,7 @@
   transition: all 0.3s;
 }
 
-.wp-pagenavi a .current {
+.wp-pagenavi .current {
   background-color: $green;
   color: $white;
 }
