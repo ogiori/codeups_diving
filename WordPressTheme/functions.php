@@ -374,3 +374,74 @@ function custom_menus()
  unset($menu[10]);
 }
 add_action('admin_menu', 'custom_menus');
+
+/*===== 投稿ページ一覧の部帯にある項目を非表示(コメント) =====*/
+add_filter('manage_posts_columns', 'delete_posts_column');
+function delete_posts_column($columns)
+{
+ unset($columns['comments']);
+ return $columns;
+}
+
+/*===== 固定ページ一覧の上部帯にある項目を非表示(投稿者・コメント) =====*/
+add_filter('manage_pages_columns', 'delete_pages_column');
+function delete_pages_column($columns)
+{
+ unset($columns['author']);
+ unset($columns['comments']);
+ return $columns;
+}
+// ====================================================================
+
+
+// ====================================================================
+add_action('wp_dashboard_setup', 'remove_dashboard_content');
+function remove_dashboard_content()
+{
+ global $wp_meta_boxes;
+ // ようこそ
+ remove_action('welcome_panel', 'wp_welcome_panel');
+ // WordPress イベントとニュース
+ unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+ // クイックドラフト
+ unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+ if (!current_user_can('administrator', 'editor')) {
+  // 概要
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+  // サイトヘルス
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health']);
+ }
+}
+
+
+/* 管理画面から非表示にする */
+add_action('admin_menu', 'remove_menus');
+function remove_menus()
+{
+ remove_menu_page('index.php'); // ダッシュボード
+ remove_menu_page('edit.php'); // 投稿
+ remove_menu_page('upload.php'); // メディア
+ remove_menu_page('edit.php?post_type=page'); // 固定ページ
+ remove_menu_page('edit-comments.php'); // コメント
+ remove_menu_page('themes.php'); // 外観
+ remove_menu_page('plugins.php'); // プラグイン
+ remove_menu_page('users.php'); // ユーザー
+ remove_menu_page('tools.php'); // ツール
+ remove_menu_page('options-general.php'); // 設定
+ /*===== 個別プラグイン =====*/
+ remove_menu_page('edit.php?post_type=acf-field-group'); //Advanced Custom Fields
+ remove_menu_page('wpcf7'); //Contact Form 7
+ remove_menu_page('cptui_main_menu');//Custom Post Type UI
+ remove_menu_page('ai1wm_export');//All-in-One WP Migration
+
+}
+
+// add_action('admin_menu', 'remove_menu');
+// function remove_menu()
+// {
+//  global $menu;
+//  echo ('<pre>');
+//  var_dump($menu);
+//  echo ('<pre>');
+//  exit;
+// }
