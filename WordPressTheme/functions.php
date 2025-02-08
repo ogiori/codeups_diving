@@ -418,21 +418,21 @@ function remove_dashboard_content()
 add_action('admin_menu', 'remove_menus');
 function remove_menus()
 {
- remove_menu_page('index.php'); // ダッシュボード
- remove_menu_page('edit.php'); // 投稿
- remove_menu_page('upload.php'); // メディア
- remove_menu_page('edit.php?post_type=page'); // 固定ページ
- remove_menu_page('edit-comments.php'); // コメント
- remove_menu_page('themes.php'); // 外観
- remove_menu_page('plugins.php'); // プラグイン
- remove_menu_page('users.php'); // ユーザー
- remove_menu_page('tools.php'); // ツール
- remove_menu_page('options-general.php'); // 設定
+ // remove_menu_page('index.php'); // ダッシュボード
+ // remove_menu_page('edit.php'); // 投稿
+ // remove_menu_page('upload.php'); // メディア
+ // remove_menu_page('edit.php?post_type=page'); // 固定ページ
+ // remove_menu_page('edit-comments.php'); // コメント
+ // remove_menu_page('themes.php'); // 外観
+ // remove_menu_page('plugins.php'); // プラグイン
+ // remove_menu_page('users.php'); // ユーザー
+ // remove_menu_page('tools.php'); // ツール
+ // remove_menu_page('options-general.php'); // 設定
  /*===== 個別プラグイン =====*/
- remove_menu_page('edit.php?post_type=acf-field-group'); //Advanced Custom Fields
- remove_menu_page('wpcf7'); //Contact Form 7
- remove_menu_page('cptui_main_menu');//Custom Post Type UI
- remove_menu_page('ai1wm_export');//All-in-One WP Migration
+ // remove_menu_page('edit.php?post_type=acf-field-group'); //Advanced Custom Fields
+ // remove_menu_page('wpcf7'); //Contact Form 7
+ // remove_menu_page('cptui_main_menu');//Custom Post Type UI
+ // remove_menu_page('ai1wm_export');//All-in-One WP Migration
 
 }
 
